@@ -1,0 +1,51 @@
+---
+
+- name: Copy config
+  copy: src='{{item}}' dest=/tmp/bd_config.zip
+  with_fileglob:
+    - "{{configfile}}"
+
+- name: Check whether epel is installed already
+  command: rpm -q epel-release
+  register: rpm_check_epel_release
+  ignore_errors: True
+
+- name: Install epel repo
+  command:
+    rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+  when: rpm_check_epel_release.rc == 1
+
+- name: Ensure that ansible is installed
+  yum: name=ansible state=installed
+
+- name: Ensure that git is installed
+  yum: name=git state=installed
+
+- name: Ensure that git can handle large files
+  command:
+    git config --global http.postBuffer 524288000
+
+- name: Checkout ansible scripts
+  command:
+    git clone https://github.com/SharedHealth/FreeSHR-Bahmni-Playbooks.git
+    creates=/FreeSHR-Bahmni-Playbooks
+    chdir=/
+
+- name: Update ansible scripts
+  command:
+     git pull --rebase
+     chdir=/FreeSHR-Bahmni-Playbooks
+
+- name: Remove existing known host
+  known_hosts: host=localhost port=2222 state=absent
+
+- name: Add docker to known hosts
+  known_hosts: host=localhost port=2222 state=present
+
+
+- name: Deploy config to docker
+  shell:
+    ansible-playbook -i docker configured-hosts.yml --extra-vars="configfile=/tmp/bd_config.zip"
+    chdir=/FreeSHR-Bahmni-Playbooks
+  environment:
+    ANSIBLE_HOST_KEY_CHECKING: False

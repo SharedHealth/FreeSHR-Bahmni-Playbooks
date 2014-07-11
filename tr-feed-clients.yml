@@ -1,0 +1,8 @@
+---
+
+- hosts: bahmni
+  sudo: True
+  vars:
+    bahmni_user: bahmni
+  roles:
+    - tr-feed-client

@@ -1,0 +1,20 @@
+---
+
+- name: Copy config
+  copy: src='{{item}}' dest=/packages/build/bd_config.zip mode=0777
+  with_fileglob:
+    - "{{configfile}}"
+
+- name: No tty
+  lineinfile: backup=yes state=present dest=/etc/sudoers
+              regexp='^Defaults    requiretty'
+              line='#Defaults    requiretty'
+
+- name: Deploy implementation config
+  command:
+    sh run-puppet-manifest.sh deploy-implementation-config
+    chdir=/root/bahmni/bahmni-environment/scripts/
+  environment:
+    IMPLEMENTATION_NAME: bd
+    BAHMNI_USER_NAME: bahmni
+  ignore_errors: yes

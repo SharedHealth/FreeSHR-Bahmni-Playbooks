@@ -1,0 +1,19 @@
+---
+
+- name: Copy properties
+  copy: src='tr_atomfeed_properties.properties' dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/ mode=755
+
+- name: Copy omod
+  copy: src='{{item}}' dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/modules mode=755
+  with_fileglob:
+    - "{{all_omods}}"
+
+- name: Stop bahmni
+  command: bahmni-commands stop
+  sudo: True
+  sudo_user: root
+
+- name: Start bahmni
+  command: bahmni-commands start
+  sudo: True
+  sudo_user: root

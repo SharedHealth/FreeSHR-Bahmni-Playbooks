@@ -1,0 +1,7 @@
+---
+- hosts: bahmni
+  sudo: True
+  roles:
+   - role: bahmni-server
+  vars:
+   go_user_home: /var/go

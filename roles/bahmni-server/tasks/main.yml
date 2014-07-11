@@ -1,0 +1,4 @@
+---
+
+- include: install-server.yml
+- include: deploy-config.yml tags=config

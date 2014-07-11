@@ -1,0 +1,9 @@
+#!/bin/bash
+case $1 in
+  "start")
+    docker run -d -e 443 -p 80:80 -p 8000:8000 -p 443:443 -p 2222:22  -t -v /var/docker/mysql/:/var/lib/mysql -v /var/docker/psql/:/var/lib/pgsql -v /var/docker/www/:/var/www -v /var/docker/home/:/home  172.18.46.51:5000/bahmni-server:v5 sh /startup.sh
+    ;;
+   "stop")
+    docker rm -f $(docker ps -a | awk '{print $1}' | tail -n+2)
+    ;;
+esac

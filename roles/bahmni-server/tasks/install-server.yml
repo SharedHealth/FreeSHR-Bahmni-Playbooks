@@ -1,0 +1,129 @@
+---
+
+- name: Check whether epel is installed already
+  command: rpm -q epel-release
+  register: rpm_check_epel_release
+  ignore_errors: True
+
+- name: Install epel repo
+  command:
+    rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+  when: rpm_check_epel_release.rc == 1
+
+- name: Ensure that docker is installed
+  yum: name=docker-io state=latest
+
+- name: Start docker service
+  service: name=docker state=started
+
+- name: Pull the bahmni image
+  command:
+     docker pull 172.18.46.51:5000/bahmni-server:v5
+
+- name: Create directory for persistent volumes
+  file: path=/var/docker state=directory owner=root mode=0755
+
+- name: Ensure that sshpass is installed
+  yum: name=sshpass state=latest
+
+- name: Add ci to known hosts
+  known_hosts: host=172.18.46.51 state=present
+  sudo: yes
+
+- name: Copy the home volume
+  command:
+    sshpass -p 'p@ssw0rd678' scp -r bdshr@172.18.46.51:/var/packages/home /var/docker/
+
+- name: Copy ant
+  command:
+    sshpass -p 'p@ssw0rd678' scp -r bdshr@172.18.46.51:/var/packages/apache-ant-1.9.1-bin.tar.bz2 /var/docker/home/bahmni
+
+- name: Extract ant
+  command:
+    tar -xvf apache-ant-1.9.1-bin.tar.bz2
+    chdir=/var/docker/home/bahmni
+    creates=apache-ant-1.9.1
+
+- name: Copy tomcat
+  command:
+    sshpass -p 'p@ssw0rd678' scp -r bdshr@172.18.46.51:/var/packages/apache-tomcat-7.0.54.tar.gz /var/docker/home/bahmni
+
+- name: Extract tomcat
+  command:
+    tar -xvf apache-tomcat-7.0.54.tar.gz
+    chdir=/var/docker/home/bahmni
+    creates=apache-tomcat-7.0.54
+
+- name: Rename tomcat
+  command:
+    mv apache-tomcat-7.0.54 apache-tomcat-7.0.22
+    chdir=/var/docker/home/bahmni
+    creates=apache-tomcat-7.0.22
+
+- name: Copy mrs
+  command:
+    sshpass -p 'p@ssw0rd678' scp -r bdshr@172.18.46.51:/var/packages/openmrs.tar.gz /tmp
+
+- name: Ensure that openmrs is not there
+  command:
+     rm -rf /tmp/openmrs
+
+- name: Extract openmrs
+  command:
+    tar -xvf openmrs.tar.gz
+    chdir=/tmp
+
+- name: Copy openmrs
+  command:
+    cp -r /tmp/openmrs /var/docker/home/bahmni/apache-tomcat-7.0.22/webapps
+
+- name: Copy mysql data
+  command:
+    sshpass -p 'p@ssw0rd678' scp -r bdshr@172.18.46.51:/var/packages/mysql.tar.gz /var/docker/
+
+- name: Extract mysql data
+  command:
+    tar -xvf mysql.tar.gz
+    chdir=/var/docker
+    creates=mysql
+
+- name: Copy postgres data
+  command:
+    sshpass -p 'p@ssw0rd678' scp -r bdshr@172.18.46.51:/var/packages/psql.tar.gz /var/docker/
+
+- name: Extract postgres data
+  command:
+    tar -xvf psql.tar.gz
+    chdir=/var/docker
+    creates=psql
+
+- name: Copy www data
+  command:
+    sshpass -p 'p@ssw0rd678' scp -r bdshr@172.18.46.51:/var/packages/www.tar.gz /var/docker/
+
+- name: set permissions
+  command:
+    chmod -R 777 /var/docker
+  sudo: yes
+
+- name: Extract www data
+  command:
+    tar -xvf www.tar.gz
+    chdir=/var/docker
+    creates=www
+
+- name: Copy the start
+  copy: src=bahmni-commands dest=/bin mode=0755
+
+- name: Get IpTable rules
+  shell: iptables -L
+  register: iptablesrules
+  sudo: true
+
+- name: Allow ssh port through firewall
+  command: /sbin/iptables -I INPUT 1 -p tcp --dport 2222 -j ACCEPT -m comment --comment "DockerSSH"
+  sudo: true
+  when: iptablesrules.stdout.find("DockerSSH") == -1
+
+- name: Start the service
+  shell: bahmni-commands start

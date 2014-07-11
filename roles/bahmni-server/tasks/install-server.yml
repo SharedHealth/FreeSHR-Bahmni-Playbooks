@@ -27,7 +27,7 @@
   yum: name=sshpass state=latest
 
 - name: Add known hosts to known_hosts file
-  lineinfile: dest=/root/.ssh/known_hosts regexp=^${item.host} line="${item.line}"
+  lineinfile: dest=/root/.ssh/known_hosts regexp=^${item.host} line=${item.line}
   with_items:
    - { "host": "172.18.46.51", "line": "172.18.46.51 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA0zXIIC6w+k5+5ZT8gKrXSD5xXZc5sdqWs2H/c/2FGJvvH2KMaK8HeIaenKvo2a9e94bh4VRhKv5tOiLj+b0Vu9tCVyXZQEc/w2l+j2VCeW1loavniqay1nvGMRFrNFTiXLHp2pfYliT6lNtCqjbUeb9yMHC6o2JtD4GV6o26k1uKVLI2Fk9JQy43yzZusOPbLrb4DhEafKcXq3/bHQCZRd9Eae+I2LkTDlP6kWrae+yNEs1F2aRs9rw8MomrYkv2fYcTnIazsHyU4hQVHDAnOK6jza9+EcgZo7uQOwETzDLbjoV9+QSxGyFgtTczJ1fHWw/xGBNee6bfNBsnWsBzpQ==" }
   sudo: yes

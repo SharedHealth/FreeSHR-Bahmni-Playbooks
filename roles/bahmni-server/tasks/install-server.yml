@@ -4,11 +4,15 @@
   command: rpm -q epel-release
   register: rpm_check_epel_release
   ignore_errors: True
+  tags:
+    - el
 
 - name: Install epel repo
   command:
     rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
   when: rpm_check_epel_release.rc == 1
+  tags:
+    - el
 
 - name: Ensure that docker is installed
   yum: name=docker-io state=latest

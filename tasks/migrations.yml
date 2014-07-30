@@ -3,10 +3,10 @@
   copy: src='mysql-connector-java-5.0.8-bin.jar' dest=/usr/share/java mode=755
 
 - name: Copy migrations
-  copy: src={{environment}}'-migrations.xml' dest=/tmp mode=755
+  copy: src={{deployment_environment}}-migrations.xml dest=/tmp mode=755
 
 - name: wait for bahmini server to start
   uri: url=http://localhost:8080/openmrs/index.htm return_content=true
 
 - name: Apply migrations
-  shell: liquibase --url="jdbc:mysql://localhost/terminologies" --username=root --password=password --changeLogFile=/tmp/{{environment}}-migrations.xml --classpath=/usr/share/java/mysql-connector-java-5.0.8-bin.jar update
+  shell: liquibase --url="jdbc:mysql://localhost/terminologies" --username=root --password=password --changeLogFile=/tmp/{{deployment_environment}}-migrations.xml --classpath=/usr/share/java/mysql-connector-java-5.0.8-bin.jar update

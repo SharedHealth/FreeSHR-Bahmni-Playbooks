@@ -7,7 +7,7 @@
          chdir=/FreeSHR-Bahmni-Playbooks
     - name: run migrations in docker
       shell:
-        ansible-playbook -i docker apply-migrations-to-docker.yml --extra-vars="environment={{environment}}"
+        ansible-playbook -i docker apply-migrations-to-docker.yml --extra-vars="deployment_environment={{deployment_environment}}"
         chdir=/FreeSHR-Bahmni-Playbooks
       environment:
         ANSIBLE_HOST_KEY_CHECKING: False

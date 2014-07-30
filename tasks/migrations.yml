@@ -15,7 +15,7 @@
 
 - name: Install epel repo
   command:
-    rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/liquibase-3.1.0-1.el6.noarch.rpm
+    yum install -y http://dl.fedoraproject.org/pub/epel/6/x86_64/liquibase-3.1.0-1.el6.noarch.rpm
   when: rpm_check_liquibase.rc == 1
 
 - name: Apply migrations

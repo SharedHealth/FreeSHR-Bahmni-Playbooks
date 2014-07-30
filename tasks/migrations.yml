@@ -6,7 +6,7 @@
   copy: src={{deployment_environment}}-migrations.xml dest=/tmp mode=755
 
 - name: wait for bahmini server to start
-  uri: url=http://localhost:8080/openmrs/index.htm return_content=true
+  uri: url=http://localhost:8080/openmrs/index.htm timeout=300 return_content=true
 
 - name: Check whether liquibase is installed already
   command: rpm -q liquibase

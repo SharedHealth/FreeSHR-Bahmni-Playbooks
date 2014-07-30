@@ -8,18 +8,15 @@
 - name: wait for bahmini server to start
   uri: url=http://localhost:8080/openmrs/index.htm return_content=true
 
-- name: Check whether epel is installed already
-  command: rpm -q epel-release
-  register: rpm_check_epel_release
+- name: Check whether liquibase is installed already
+  command: rpm -q liquibase
+  register: rpm_check_liquibase
   ignore_errors: True
 
 - name: Install epel repo
   command:
-    rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-  when: rpm_check_epel_release.rc == 1
-
-- name: Install liquibase
-  yum: name=liquibase state=latest
+    rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/liquibase-3.1.0-1.el6.noarch.rpm
+  when: rpm_check_liquibase.rc == 1
 
 - name: Apply migrations
   shell: liquibase --url="jdbc:mysql://localhost/terminologies" --username=root --password=password --changeLogFile=/tmp/{{deployment_environment}}-migrations.xml --classpath=/usr/share/java/mysql-connector-java-5.0.8-bin.jar update

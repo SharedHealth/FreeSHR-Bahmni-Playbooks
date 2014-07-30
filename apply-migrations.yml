@@ -1,0 +1,13 @@
+- hosts: bahmni
+  sudo: True
+  tasks:
+    - name: Update ansible scripts
+      command:
+         git pull --rebase
+         chdir=/FreeSHR-Bahmni-Playbooks
+    - name: run migrations in docker
+      shell:
+        ansible-playbook -i docker apply-migrations-to-docker.yml --extra-vars="environment={{environment}}"
+        chdir=/FreeSHR-Bahmni-Playbooks
+      environment:
+        ANSIBLE_HOST_KEY_CHECKING: False

@@ -1,0 +1,4 @@
+- hosts: configuredhost
+  sudo: True
+  tasks:
+    - include: migrations.yml

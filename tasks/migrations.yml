@@ -3,7 +3,7 @@
   copy: src='mysql-connector-java-5.0.8-bin.jar' dest=/tmp mode=755
 
 - name: Copy migrations
-  copy: src={{deployment_environment}}-migrations.xml dest=/tmp mode=755
+  template: src={{deployment_environment}}-migrations.j2 dest=/tmp/{{deployment_environment}}-migrations.xml mode=755
 
 - name: wait for bahmini server to start
   uri: url=http://localhost:8080/openmrs/index.htm timeout=300 return_content=true

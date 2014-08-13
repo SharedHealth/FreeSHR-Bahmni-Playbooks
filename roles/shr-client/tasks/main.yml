@@ -10,10 +10,14 @@
     - "{{all_omods}}"
 
 - name: Copy MCI properties
-  copy: src='mci.properties' dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/ mode=755
+  copy: src={{deployment_environment}}-mci.properties
+    dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/mci.properties
+    mode=755
 
 - name: Copy SHR properties
-  copy: src='shr.properties' dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/ mode=755
+  copy: src={{deployment_environment}}-shr.properties
+    dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/shr.properties
+    mode=755
 
 - name: Stop bahmni
   command: bahmni-commands stop

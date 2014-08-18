@@ -40,6 +40,9 @@
      git pull --rebase
      chdir=/FreeSHR-Bahmni-Playbooks
 
+- name: install bind-utils
+  yum: name=bind-utils state=installed
+
 - name: Remove existing known host
   known_hosts: host=localhost port=2222 state=absent
 

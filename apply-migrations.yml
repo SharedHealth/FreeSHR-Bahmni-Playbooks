@@ -5,6 +5,11 @@
       command:
          git pull --rebase
          chdir=/FreeSHR-Bahmni-Playbooks
+
+    - name: Ensure that docker is started
+      wait_for: port=2222 delay=3
+      sudo: yes
+      
     - name: run migrations in docker
       shell:
         ansible-playbook -i docker apply-migrations-to-docker.yml --extra-vars="deployment_environment={{deployment_environment}} rest_uri_prefix={{rest_uri_prefix}}"

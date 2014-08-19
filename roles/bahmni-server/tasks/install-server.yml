@@ -121,8 +121,27 @@
     chdir=/var/docker
     creates=www
 
+- name: Ensure that modules directory is writable
+  command: chmod -R 777 /var/docker
+  sudo: yes
+
+- name: Copy MCI properties
+  copy: src={{deployment_environment}}-mci.properties
+    dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/mci.properties
+    mode=755
+
+- name: Copy SHR properties
+  copy: src={{deployment_environment}}-shr.properties
+    dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/shr.properties
+    mode=755
+
+- name: Copy TR properties
+  copy: src={{deployment_environment}}-tr_atomfeed_properties.properties
+    dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/tr_atomfeed_properties.properties
+    mode=755
+
 - name: Copy the start
-  copy: src=bahmni-commands dest=/bin mode=0755
+  copy: src=bahmni-commands dest=/bin mode=0755 force=yes
 
 - name: Get IpTable rules
   shell: iptables -L

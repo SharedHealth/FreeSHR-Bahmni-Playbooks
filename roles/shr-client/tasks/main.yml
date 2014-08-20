@@ -10,12 +10,12 @@
     - "{{all_omods}}"
 
 - name: Copy MCI properties
-  copy: src={{deployment_environment}}-mci.properties
+  copy: src=files/{{deployment_environment}}-mci.properties
     dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/mci.properties
     mode=755
 
 - name: Copy SHR properties
-  copy: src={{deployment_environment}}-shr.properties
+  copy: src=files/{{deployment_environment}}-shr.properties
     dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/shr.properties
     mode=755
 

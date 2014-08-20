@@ -36,8 +36,8 @@
 - name: install bind-utils
   yum: name=bind-utils state=installed
 
-- name: Add docker to known hosts
-  known_hosts: host=172.18.46.51 port=2222 state=present
+- name: Add ci to known hosts
+  known_hosts: host=172.18.46.51 state=present
 
 - name: Copy the home volume
   command:

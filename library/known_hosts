@@ -49,8 +49,6 @@ then
   owner=$(whoami)
 fi
 
-ip=$(dig $host +short)
-
 keygen_name=$host
 if [ -z "$port" -a $port -ne 22 ]
 then
@@ -58,12 +56,11 @@ then
 fi
 
 have_host=$(su - $owner -c "ssh-keygen -F $keygen_name -f $file")
-have_ip=$(su - $owner -c "ssh-keygen -F $ip -f $file")
-have="$have_host$have_ip"
+have="$have_host"
 
 if [ -n "$have" -a $state == "absent" ]
 then
-  for h in $keygen_name $ip
+  for h in $keygen_name
   do
     su - $owner -c "ssh-keygen -R $h -f $file &> /dev/null"
     if [ ! $? -eq 0 ]
@@ -76,7 +73,7 @@ then
   exit
 elif [ -z "$have" -a $state == "present" ]
 then
-  for h in $host $ip
+  for h in $host
   do
     su - $owner -c "ssh-keyscan -p $port -H $h 2> /dev/null >> $file"
     if [ ! $? -eq 0 ]

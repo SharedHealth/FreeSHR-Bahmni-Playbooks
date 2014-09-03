@@ -1,18 +1,21 @@
 ---
 
+- name: Create '{{bdshr_config_home}}' dir
+  command: mkdir -p {{bdshr_config_home}}
+
 - name: Copy MCI properties
   copy: src=files/{{deployment_environment}}-mci.properties
-    dest=/home/'{{bahmni_user}}'/.OpenMRS/mci.properties
+    dest='{{bdshr_config_home}}'/mci.properties
     mode=755
 
 - name: Copy SHR properties
   copy: src=files/{{deployment_environment}}-shr.properties
-    dest=/home/'{{bahmni_user}}'/.OpenMRS/shr.properties
+    dest='{{bdshr_config_home}}'/shr.properties
     mode=755
 
 - name: Copy TR properties
   copy: src=files/{{deployment_environment}}-tr_atomfeed_properties.properties
-    dest=/home/'{{bahmni_user}}'/.OpenMRS/tr_atomfeed_properties.properties
+    dest='{{bdshr_config_home}}'/tr_atomfeed_properties.properties
     mode=755
 
 - name: Copy config
@@ -35,4 +38,4 @@
   ignore_errors: yes
 
 - name: Stop openerp service
-  service: name=openerp state=stopped  
+  service: name=openerp state=stopped

@@ -1,0 +1,23 @@
+---
+
+- name: Delete dirs
+  command: rm -rf {{ item }}
+  with_items:
+    - /root/bahmni
+    - /packages/build
+
+- name: Create /root/bahmni dir
+  command: mkdir -p /root/bahmni
+
+- name: Git clone bahmni-environment
+  command:
+    git clone -b {{release_version}} https://github.com/Bhamni/bahmni-environment.git
+    chdir=/root/bahmni
+
+- name: Run Bahmni download-build scripts
+  shell:
+    ./scripts/run-puppet-manifest.sh download-build
+    chdir=/root/bahmni/bahmni-environment
+  environment:
+    BAHMNI_USER_NAME: bahmni
+    IMPLEMENTATION_NAME: jss

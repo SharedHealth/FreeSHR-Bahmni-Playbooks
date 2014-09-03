@@ -16,8 +16,11 @@
     - /packages/build
     - /bahmni_temp
 
-- name: Create /root/bahmni dir
-  command: mkdir -p /root/bahmni
+- name: Create dirs
+  command: mkdir -p {{ item }}
+  with_items:
+    - /root/bahmni
+    - /packages
 
 - name: Git clone bahmni-environment
   command:
@@ -39,10 +42,12 @@
 - name: Create openerp db
   postgresql_db: name=openerp
 
-- name: Run Bahmni download-build scripts
-  shell:
-    ./scripts/run-puppet-manifest.sh download-build
-    chdir=/root/bahmni/bahmni-environment
-  environment:
-    BAHMNI_USER_NAME: '{{bahmni_user}}'
-    IMPLEMENTATION_NAME: jss
+- name: Download bahmni build
+  copy:
+    src=/var/lib/bahmni/release/bahmni-{{release_version}}.zip
+    dest=/tmp/
+
+- name: Unarchive bahmni build
+  command:
+    tar -xvf /tmp/bahmni-{{release_version}}.zip
+    chdir=/packages

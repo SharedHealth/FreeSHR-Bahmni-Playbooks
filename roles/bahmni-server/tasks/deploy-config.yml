@@ -1,63 +1,38 @@
 ---
 
+- name: Copy MCI properties
+  copy: src=files/{{deployment_environment}}-mci.properties
+    dest=/home/'{{bahmni_user}}'/.OpenMRS/mci.properties
+    mode=755
+
+- name: Copy SHR properties
+  copy: src=files/{{deployment_environment}}-shr.properties
+    dest=/home/'{{bahmni_user}}'/.OpenMRS/shr.properties
+    mode=755
+
+- name: Copy TR properties
+  copy: src=files/{{deployment_environment}}-tr_atomfeed_properties.properties
+    dest=/home/'{{bahmni_user}}'/.OpenMRS/tr_atomfeed_properties.properties
+    mode=755
+
 - name: Copy config
-  copy: src='{{item}}' dest=/tmp/bd_config.zip
+  copy: src={{ item }} dest=/packages/build mode=0777
   with_fileglob:
-    - "{{configfile}}"
+    - "{{ config_file }}"
 
-- name: Check whether epel is installed already
-  command: rpm -q epel-release
-  register: rpm_check_epel_release
-  ignore_errors: True
-  tags:
-    - el
+- name: No tty
+  lineinfile: backup=yes state=present dest=/etc/sudoers
+              regexp='^Defaults    requiretty'
+              line='#Defaults    requiretty'
 
-- name: Install epel repo
-  command:
-    rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-  when: rpm_check_epel_release.rc == 1
-  tags:
-    - el
-
-- name: Ensure that ansible is installed
-  yum: name=ansible state=installed
-
-- name: Ensure that git is installed
-  yum: name=git state=installed
-
-- name: Ensure that git can handle large files
-  command:
-    git config --global http.postBuffer 524288000
-
-- name: Checkout ansible scripts
-  command:
-    git clone https://github.com/SharedHealth/FreeSHR-Bahmni-Playbooks.git
-    creates=/FreeSHR-Bahmni-Playbooks
-    chdir=/
-
-- name: Update ansible scripts
-  command:
-     git pull --rebase
-     chdir=/FreeSHR-Bahmni-Playbooks
-
-- name: install bind-utils
-  yum: name=bind-utils state=installed
-
-- name: Remove existing known host
-  known_hosts: host=localhost port=2222 state=absent
-
-- name: Add docker to known hosts
-  known_hosts: host=localhost port=2222 state=present
-
-
-# Wait 300 seconds for port 2222 to become open and contain "OpenSSH", don't start checking for 10 seconds
-- name: Ensure that docker is started
-  wait_for: port=2222 delay=3
-  sudo: yes
-
-- name: Deploy config to docker
+- name: Deploy bdshr config
   shell:
-    ansible-playbook -i docker configured-hosts.yml --extra-vars="configfile=/tmp/bd_config.zip"
-    chdir=/FreeSHR-Bahmni-Playbooks
+    ./scripts/run-puppet-manifest.sh deploy-implementation
+    chdir=/root/bahmni/bahmni-environment
   environment:
-    ANSIBLE_HOST_KEY_CHECKING: False
+    BAHMNI_USER_NAME: '{{bahmni_user}}'
+    IMPLEMENTATION_NAME: bdshr
+  ignore_errors: yes
+
+- name: Stop openerp service
+  service: name=openerp state=stopped  

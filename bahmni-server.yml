@@ -1,0 +1,9 @@
+---
+# Assumption: /packages constains localrepo, servers, tools and python-packages
+# Set following vars: release_version, config_file, deployment_environment
+- hosts: bahmni
+  sudo: true
+  roles:
+   - role: bahmni-server
+  vars:
+   bahmni_user: bahmni

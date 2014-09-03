@@ -1,157 +1,48 @@
 ---
 
-- name: Check whether epel is installed already
-  command: rpm -q epel-release
-  register: rpm_check_epel_release
-  ignore_errors: True
-  tags:
-    - el
+- name: Install dependencies
+  yum: name={{ item }} state=present
+  with_items:
+    - ruby
+    - puppet
+    - git
+    - MySQL-python
+    - wget
 
-- name: Install epel repo
+- name: Delete dirs
+  command: rm -rf {{ item }}
+  with_items:
+    - /root/bahmni
+    - /packages/build
+    - /bahmni_temp
+
+- name: Create /root/bahmni dir
+  command: mkdir -p /root/bahmni
+
+- name: Git clone bahmni-environment
   command:
-    rpm -iUvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-  when: rpm_check_epel_release.rc == 1
-  tags:
-    - el
+    git clone -b {{release_version}} https://github.com/Bhamni/bahmni-environment.git
+    chdir=/root/bahmni
 
-- name: Ensure that docker is installed
-  yum: name=docker-io state=latest
+- name: Run Bahmni provision scripts
+  # Assumption: /packages constains localrepo, servers, tools and python-packages
+  shell:
+    ./scripts/run-puppet-manifest.sh provision
+    chdir=/root/bahmni/bahmni-environment
+  environment:
+    BAHMNI_USER_NAME: '{{bahmni_user}}'
+    IMPLEMENTATION_NAME: jss
 
-- name: Start docker service
-  service: name=docker state=started
+- name: Create openmrs db
+  mysql_db: name=openmrs state=present login_user=root login_password=password
 
-- name: Pull the bahmni image
-  command:
-     docker pull 172.18.46.51:5000/bahmni-server:v5
+- name: Create openerp db
+  postgresql_db: name=openerp
 
-- name: Create directory for persistent volumes
-  file: path=/var/docker state=directory owner=root mode=0755
-
-- name: Ensure that sshpass is installed
-  yum: name=sshpass state=latest
-
-- name: Ensure that ssh directory is present
-  file: path=/root/.ssh mode=0644 state=directory
-
-- name: install bind-utils
-  yum: name=bind-utils state=installed
-
-- name: Add ci to known hosts
-  known_hosts: host=172.18.46.51 state=present
-
-- name: Copy the home volume
-  command:
-    sshpass -p 'p@ssw0rd678' scp -r bdshr@172.18.46.51:/var/packages/home /var/docker/
-
-- name: Copy ant
-  command:
-    sshpass -p 'p@ssw0rd678' scp -r bdshr@172.18.46.51:/var/packages/apache-ant-1.9.1-bin.tar.bz2 /var/docker/home/bahmni
-
-- name: Extract ant
-  command:
-    tar -xvf apache-ant-1.9.1-bin.tar.bz2
-    chdir=/var/docker/home/bahmni
-    creates=apache-ant-1.9.1
-
-- name: Copy tomcat
-  command:
-    sshpass -p 'p@ssw0rd678' scp -r bdshr@172.18.46.51:/var/packages/apache-tomcat-7.0.54.tar.gz /var/docker/home/bahmni
-
-- name: Extract tomcat
-  command:
-    tar -xvf apache-tomcat-7.0.54.tar.gz
-    chdir=/var/docker/home/bahmni
-    creates=apache-tomcat-7.0.54
-
-- name: Rename tomcat
-  command:
-    mv apache-tomcat-7.0.54 apache-tomcat-7.0.22
-    chdir=/var/docker/home/bahmni
-    creates=apache-tomcat-7.0.22
-
-- name: Copy mrs
-  command:
-    sshpass -p 'p@ssw0rd678' scp -r bdshr@172.18.46.51:/var/packages/openmrs.tar.gz /tmp
-
-- name: Ensure that openmrs is not there
-  command:
-     rm -rf /tmp/openmrs
-
-- name: Extract openmrs
-  command:
-    tar -xvf openmrs.tar.gz
-    chdir=/tmp
-
-- name: Copy openmrs
-  command:
-    cp -r /tmp/openmrs /var/docker/home/bahmni/apache-tomcat-7.0.22/webapps
-
-- name: Copy mysql data
-  command:
-    sshpass -p 'p@ssw0rd678' scp -r bdshr@172.18.46.51:/var/packages/mysql.tar.gz /var/docker/
-
-- name: Extract mysql data
-  command:
-    tar -xvf mysql.tar.gz
-    chdir=/var/docker
-    creates=mysql
-
-- name: Copy postgres data
-  command:
-    sshpass -p 'p@ssw0rd678' scp -r bdshr@172.18.46.51:/var/packages/psql.tar.gz /var/docker/
-
-- name: Extract postgres data
-  command:
-    tar -xvf psql.tar.gz
-    chdir=/var/docker
-    creates=psql
-
-- name: Copy www data
-  command:
-    sshpass -p 'p@ssw0rd678' scp -r bdshr@172.18.46.51:/var/packages/www.tar.gz /var/docker/
-
-- name: set permissions
-  command:
-    chmod -R 777 /var/docker
-  sudo: yes
-
-- name: Extract www data
-  command:
-    tar -xvf www.tar.gz
-    chdir=/var/docker
-    creates=www
-
-- name: Ensure that modules directory is writable
-  command: chmod -R 777 /var/docker
-  sudo: yes
-
-- name: Copy MCI properties
-  copy: src=files/{{deployment_environment}}-mci.properties
-    dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/mci.properties
-    mode=755
-
-- name: Copy SHR properties
-  copy: src=files/{{deployment_environment}}-shr.properties
-    dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/shr.properties
-    mode=755
-
-- name: Copy TR properties
-  copy: src=files/{{deployment_environment}}-tr_atomfeed_properties.properties
-    dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/tr_atomfeed_properties.properties
-    mode=755
-
-- name: Copy the start
-  copy: src=bahmni-commands dest=/bin mode=0755 force=yes
-
-- name: Get IpTable rules
-  shell: iptables -L
-  register: iptablesrules
-  sudo: true
-
-- name: Allow ssh port through firewall
-  command: /sbin/iptables -I INPUT 1 -p tcp --dport 2222 -j ACCEPT -m comment --comment "DockerSSH"
-  sudo: true
-  when: iptablesrules.stdout.find("DockerSSH") == -1
-
-- name: Start the service
-  shell: bahmni-commands start
+- name: Run Bahmni download-build scripts
+  shell:
+    ./scripts/run-puppet-manifest.sh download-build
+    chdir=/root/bahmni/bahmni-environment
+  environment:
+    BAHMNI_USER_NAME: '{{bahmni_user}}'
+    IMPLEMENTATION_NAME: jss

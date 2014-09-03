@@ -1,4 +1,13 @@
 ---
 
 - include: install-server.yml
-- include: deploy-config.yml tags=config
+- include: deploy-config.yml tags=deploy-config
+
+- name: Delete unnecessary bahmni apps
+  command: rm -rf /home/'{{bahmni_user}}'/apache-tomcat-7.0.22/webapps/{{ item }}
+  with_items:
+    - jasperserver
+    - openerp-atomfeed-service
+
+- name: Restart tomcat
+  service: name=tomcat state=restarted

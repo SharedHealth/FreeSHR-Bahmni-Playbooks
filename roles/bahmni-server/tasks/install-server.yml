@@ -45,9 +45,9 @@
 - name: Download bahmni build
   copy:
     src={{bahmni_home}}/release/bahmni-{{release_version}}.zip
-    dest=/tmp/
+    dest={{bahmni_home}}/tmp
 
 - name: Unarchive bahmni build
   command:
-    tar -xvf /tmp/bahmni-{{release_version}}.zip
+    tar -xvf {{bahmni_home}}/tmp/bahmni-{{release_version}}.zip
     chdir=/packages

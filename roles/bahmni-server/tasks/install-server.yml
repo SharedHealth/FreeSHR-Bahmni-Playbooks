@@ -12,26 +12,26 @@
 - name: Delete dirs
   command: rm -rf {{ item }}
   with_items:
-    - /root/bahmni
+    - '{{bahmni_home}}'/bahmni-environment
     - /packages/build
     - /bahmni_temp
 
 - name: Create dirs
   command: mkdir -p {{ item }}
   with_items:
-    - /root/bahmni
+    - '{{bahmni_home}}'
     - /packages
 
 - name: Git clone bahmni-environment
   command:
     git clone -b {{release_version}} https://github.com/Bhamni/bahmni-environment.git
-    chdir=/root/bahmni
+    chdir='{{bahmni_home}}'
 
 - name: Run Bahmni provision scripts
   # Assumption: /packages constains localrepo, servers, tools and python-packages
   shell:
     ./scripts/run-puppet-manifest.sh provision
-    chdir=/root/bahmni/bahmni-environment
+    chdir='{{bahmni_home}}'/bahmni-environment
   environment:
     BAHMNI_USER_NAME: '{{bahmni_user}}'
     IMPLEMENTATION_NAME: jss
@@ -44,7 +44,7 @@
 
 - name: Download bahmni build
   copy:
-    src=/var/lib/bahmni/release/bahmni-{{release_version}}.zip
+    src='{{bahmni_home}}'/release/bahmni-{{release_version}}.zip
     dest=/tmp/
 
 - name: Unarchive bahmni build

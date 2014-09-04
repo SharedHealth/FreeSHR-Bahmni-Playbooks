@@ -1,10 +1,18 @@
 ---
-# Assumption: /packages constains localrepo, servers, tools and python-packages
-# Set following vars: release_version, config_file, deployment_environment
+# Assumptions:
+#   /packages constains localrepo, servers, tools and python-packages
+#   /var/lib/bahmni/release/bahmni-{{release_version}}.zip should be present
+
+# Set following vars:
+#   release_version
+#   config_file
+#   deployment_environment
+
 - hosts: bahmni
   sudo: true
   roles:
    - role: bahmni-server
   vars:
    bahmni_user: bahmni
+   bahmni_home: /var/lib/bahmni
    bdshr_config_home: /home/'{{bahmni_user}}'/.OpenMRS

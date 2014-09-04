@@ -35,7 +35,6 @@
   environment:
     BAHMNI_USER_NAME: '{{bahmni_user}}'
     IMPLEMENTATION_NAME: bdshr
-  ignore_errors: yes
 
 - name: Stop openerp service
   service: name=openerp state=stopped

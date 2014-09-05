@@ -13,6 +13,7 @@
   command: rm -rf {{ item }}
   with_items:
     - '{{bahmni_home}}/bahmni-environment'
+    - '{{bahmni_home}}/tmp'
     - /packages/build
     - /bahmni_temp
 
@@ -20,6 +21,7 @@
   command: mkdir -p {{ item }}
   with_items:
     - '{{bahmni_home}}'
+    - '{{bahmni_home}}/tmp'
     - /packages
 
 - name: Git clone bahmni-environment

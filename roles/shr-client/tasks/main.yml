@@ -1,7 +1,7 @@
 ---
 
 - name: Ensure that modules directory is writable
-  command: chmod -R 777 /var/docker
+  command: chmod -R 777 /home
   sudo: yes
 
 - name: Copy omod

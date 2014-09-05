@@ -31,7 +31,7 @@
 - name: Deploy bdshr config
   shell:
     ./scripts/run-puppet-manifest.sh deploy-implementation
-    chdir=/root/bahmni/bahmni-environment
+    chdir={{bahmni_home}}/bahmni-environment
   environment:
     BAHMNI_USER_NAME: '{{bahmni_user}}'
     IMPLEMENTATION_NAME: bdshr

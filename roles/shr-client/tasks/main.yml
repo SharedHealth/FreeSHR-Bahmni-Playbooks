@@ -5,26 +5,19 @@
   sudo: yes
 
 - name: Copy omod
-  copy: src='{{item}}' dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/modules mode=755
+  copy: src='{{item}}' dest=/home/'{{bahmni_user}}'/.OpenMRS/modules mode=755
   with_fileglob:
-    - "{{all_omods}}"
+    - "{{omod}}"
 
-- name: Copy MCI properties
+- name: Copy mci properties
   copy: src=files/{{deployment_environment}}-mci.properties
-    dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/mci.properties
+    dest=/home/'{{bahmni_user}}'/.OpenMRS/mci.properties
     mode=755
 
-- name: Copy SHR properties
+- name: Copy shr properties
   copy: src=files/{{deployment_environment}}-shr.properties
-    dest=/var/docker/home/'{{bahmni_user}}'/.OpenMRS/shr.properties
+    dest=/home/'{{bahmni_user}}'/.OpenMRS/shr.properties
     mode=755
 
-- name: Stop bahmni
-  command: bahmni-commands stop
-  sudo: True
-  sudo_user: root
-
-- name: Start bahmni
-  command: bahmni-commands start
-  sudo: True
-  sudo_user: root
+- name: Restart tomcat
+  service: name=tomcat state=restarted

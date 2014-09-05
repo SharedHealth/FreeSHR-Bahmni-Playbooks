@@ -1,7 +1,7 @@
 ---
 # Assumptions:
-#   /packages constains localrepo, servers, tools and python-packages
-#   /var/lib/bahmni/release/bahmni-{{release_version}}.zip is present
+#   [Guest] /packages constains localrepo, servers, tools and python-packages
+#   [Host] /var/lib/bahmni/release/bahmni-{{release_version}}.zip is present
 
 # Set following vars:
 #   release_version

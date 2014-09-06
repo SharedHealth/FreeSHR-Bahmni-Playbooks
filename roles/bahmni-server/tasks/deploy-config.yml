@@ -1,23 +1,5 @@
 ---
 
-- name: Create '{{bdshr_config_home}}' dir
-  command: mkdir -p {{bdshr_config_home}}
-
-- name: Copy MCI properties
-  copy: src=files/{{deployment_environment}}-mci.properties
-    dest='{{bdshr_config_home}}'/mci.properties
-    mode=755
-
-- name: Copy SHR properties
-  copy: src=files/{{deployment_environment}}-shr.properties
-    dest='{{bdshr_config_home}}'/shr.properties
-    mode=755
-
-- name: Copy TR properties
-  copy: src=files/{{deployment_environment}}-tr_atomfeed_properties.properties
-    dest='{{bdshr_config_home}}'/tr_atomfeed_properties.properties
-    mode=755
-
 - name: Copy config
   copy: src={{ item }} dest=/packages/build mode=0777
   with_fileglob:

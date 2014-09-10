@@ -3,9 +3,11 @@
 - name: Ensure that modules directory is writable
   command: chmod -R 777 /home
   sudo: yes
+  sudo_user: bahmni
 
 - name: Copy omod
   copy: src='{{item}}' dest=/home/'{{bahmni_user}}'/.OpenMRS/modules mode=755
+  sudo_user: bahmni
   with_fileglob:
     - "{{omod}}"
 
@@ -13,11 +15,13 @@
   copy: src=files/{{deployment_environment}}-mci.properties
     dest=/home/'{{bahmni_user}}'/.OpenMRS/mci.properties
     mode=755
+  sudo_user: bahmni
 
 - name: Copy shr properties
   copy: src=files/{{deployment_environment}}-shr.properties
     dest=/home/'{{bahmni_user}}'/.OpenMRS/shr.properties
     mode=755
+  sudo_user: bahmni
 
 - name: Restart tomcat
   service: name=tomcat state=restarted

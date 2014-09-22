@@ -53,3 +53,9 @@
   command:
     tar -xvf {{bahmni_home}}/tmp/bahmni-{{release_version}}.zip
     chdir=/packages
+
+- name: Set permissions for openelis.war
+  file: path=/packages/build/openelis.war owner={{bahmni_user}} group={{bahmni_user}}
+
+- name: Set permissions for OpenElis.zip
+  file: path=/packages/build/OpenElis.zip owner={{bahmni_user}} group={{bahmni_user}}    

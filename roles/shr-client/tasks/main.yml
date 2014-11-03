@@ -1,11 +1,7 @@
 ---
 
-- debug: msg="copy omod {{ omod }} "
-
 - name: Copy omod
-  copy: src="{{ item }}" dest=/home/{{ bahmni_user }}/.OpenMRS/modules mode=755
-  with_fileglob:
-    - "{{ omod }}"
+  copy: src=/tmp/shrclient-1.0-SNAPSHOT.omod dest=/home/{{ bahmni_user }}/.OpenMRS/modules/ mode=755
 
 - name: Copy mci properties
   copy: src=files/{{ deployment_environment }}-mci.properties

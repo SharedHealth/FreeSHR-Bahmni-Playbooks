@@ -1,20 +1,20 @@
 ---
 
-- debug: msg="copy omod '{{ omod }}' "
+- debug: msg="copy omod {{ omod }} "
 
 - name: Copy omod
-  copy: src="{{ item }}" dest=/home/"{{ bahmni_user }}"/.OpenMRS/modules mode=755
+  copy: src="{{ item }}" dest=/home/{{ bahmni_user }}/.OpenMRS/modules mode=755
   with_fileglob:
     - "{{ omod }}"
 
 - name: Copy mci properties
-  copy: src=files/"{{ deployment_environment }}"-mci.properties
-    dest=/home/"{{ bahmni_user }}"/.OpenMRS/mci.properties
+  copy: src=files/{{ deployment_environment }}-mci.properties
+    dest=/home/{{ bahmni_user }}/.OpenMRS/mci.properties
     mode=755
 
 - name: Copy shr properties
-  copy: src=files/"{{ deployment_environment }}"-shr.properties
-    dest=/home/"{{ bahmni_user }}"/.OpenMRS/shr.properties
+  copy: src=files/{{ deployment_environment }}-shr.properties
+    dest=/home/{{ bahmni_user }}/.OpenMRS/shr.properties
     mode=755
 
 - name: Restart tomcat

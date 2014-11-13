@@ -15,8 +15,10 @@
     ./scripts/run-puppet-manifest.sh deploy-implementation
     chdir={{bahmni_home}}/bahmni-environment
   environment:
-    BAHMNI_USER_NAME: '{{bahmni_user}}'
-    IMPLEMENTATION_NAME: bdshr
+    FACTER_deploy_bahmni_openerp: false
+    FACTER_deploy_bahmni_openelis: true
+    FACTER_implementation_name: bdshr
+    bahmni_user_name: '{{bahmni_user}}'
 
 - name: Stop openerp service
   service: name=openerp state=stopped

@@ -12,13 +12,13 @@
 
 - name: Deploy bdshr config
   shell:
-    ./scripts/run-puppet-manifest.sh deploy-implementation
+    ./scripts/run-puppet-manifest.sh implementation_config
     chdir={{bahmni_home}}/bahmni-environment
   environment:
     FACTER_deploy_bahmni_openerp: false
     FACTER_deploy_bahmni_openelis: true
     FACTER_implementation_name: bdshr
-    bahmni_user_name: bahmni
+    FACTER_bahmni_user_name: bahmni
 
 - name: Stop openerp service
   service: name=openerp state=stopped

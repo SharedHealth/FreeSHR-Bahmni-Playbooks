@@ -14,4 +14,4 @@
    - role: bahmni-server
   vars:
    bahmni_user: bahmni
-   bahmni_home: /var/lib/bahmni
+   bahmni_home: /packages/build/

@@ -13,7 +13,7 @@
 - name: Deploy bdshr config
   shell:
     ./scripts/run-puppet-module.sh implementation_config
-    chdir={{bahmni_home}}/bahmni-environment
+    chdir=/packages/build/bahmni-environment
   environment:
     FACTER_deploy_bahmni_openerp: false
     FACTER_deploy_bahmni_openelis: true

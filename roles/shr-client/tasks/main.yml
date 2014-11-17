@@ -13,5 +13,15 @@
     dest=/home/{{ bahmni_user }}/.OpenMRS/shr.properties
     mode=755
 
+- name: Copy fr properties
+  copy: src=files/{{ deployment_environment }}-fr.properties
+    dest=/home/{{ bahmni_user }}/.OpenMRS/fr.properties
+    mode=755
+
+- name: Copy lr properties
+  copy: src=files/{{ deployment_environment }}-lr.properties
+    dest=/home/{{ bahmni_user }}/.OpenMRS/lr.properties
+    mode=755
+
 - name: Restart tomcat
   service: name=tomcat state=restarted

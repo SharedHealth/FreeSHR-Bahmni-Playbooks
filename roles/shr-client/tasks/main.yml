@@ -14,12 +14,12 @@
     mode=755
 
 - name: Copy fr properties
-  copy: src=files/{{ deployment_environment }}-fr.properties
+  copy: src=files/fr.properties
     dest=/home/{{ bahmni_user }}/.OpenMRS/fr.properties
     mode=755
 
 - name: Copy lr properties
-  copy: src=files/{{ deployment_environment }}-lr.properties
+  copy: src=files/lr.properties
     dest=/home/{{ bahmni_user }}/.OpenMRS/lr.properties
     mode=755
 

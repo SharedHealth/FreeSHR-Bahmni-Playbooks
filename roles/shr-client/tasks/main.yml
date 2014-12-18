@@ -23,5 +23,10 @@
     dest=/home/{{ bahmni_user }}/.OpenMRS/lr.properties
     mode=755
 
+- name: Copy tr properties
+  copy: src=files/{{ deployment_environment }}-tr_atomfeed_properties.properties
+    dest=/home/{{ bahmni_user }}/.OpenMRS/tr_atomfeed_properties.properties
+    mode=755
+
 - name: Restart tomcat
   service: name=tomcat state=restarted

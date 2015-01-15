@@ -30,7 +30,7 @@
 
 - name: Copy identity-server properties
   copy: src=files/{{ deployment_environment }}-identity.properties
-    dest=/home/ {{ bahmni_user }}/.OpenMRS/identity.properties
+    dest=/home/{{ bahmni_user }}/.OpenMRS/identity.properties
     mode=755
     
 - name: Restart tomcat

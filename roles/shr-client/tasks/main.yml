@@ -9,7 +9,7 @@
     mode=755
 
 - name: Copy shr properties
-  copy: src=files/{{ deployment_environment }}-shr.properties
+  copy: src=files/{{ shr_property }}-shr.properties
     dest=/home/{{ bahmni_user }}/.OpenMRS/shr.properties
     mode=755
 

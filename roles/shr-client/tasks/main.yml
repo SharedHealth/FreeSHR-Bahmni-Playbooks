@@ -23,6 +23,11 @@
     dest=/home/{{ bahmni_user }}/.OpenMRS/lr.properties
     mode=755
 
+- name: Copy pr properties
+  copy: src=files/pr.properties
+    dest=/home/{{ bahmni_user }}/.OpenMRS/pr.properties
+    mode=755
+
 - name: Copy tr properties
   copy: src=files/{{ deployment_environment }}-tr_atomfeed_properties.properties
     dest=/home/{{ bahmni_user }}/.OpenMRS/tr_atomfeed_properties.properties

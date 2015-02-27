@@ -9,8 +9,13 @@
     mode=755
 
 - name: Copy shr properties
-  copy: src=files/{{ shr_property }}-shr.properties
+  copy: src=files/{{ deployment_environment }}-shr.properties
     dest=/home/{{ bahmni_user }}/.OpenMRS/shr.properties
+    mode=755
+
+- name: Copy facility instance properties
+  copy: src=files/{{ facility_id }}-facility_instance.properties
+    dest=/home/{{ bahmni_user }}/.OpenMRS/facility_instance.properties
     mode=755
 
 - name: Copy fr properties

@@ -16,11 +16,9 @@
     data_file: "{{ shr_client_locations_seed_data_file }}"
     shr_client_database: "openmrs"
   roles:
-    - mysql-data-dump
+    - { role: mysql-data-dump, when: set-up-seed == "yes" }
   tags:
     - shr-client-locations
-  when: set-up-seed == "yes"
-
 
 - hosts: bahmni
   sudo: True
@@ -31,10 +29,9 @@
     data_file: "{{ shr_client_providers_seed_data_file }}"
     shr_client_database: "openmrs"
   roles:
-    - mysql-data-dump
+    - { role: mysql-data-dump, when: set-up-seed == "yes" }
   tags:
     - shr-client-providers
-  when: set-up-seed == "yes"
 
 - hosts: bahmni
   sudo: True
@@ -45,7 +42,6 @@
     data_file: "{{ shr_client_facilities_seed_data_file }}"
     shr_client_database: "openmrs"
   roles:
-    - mysql-data-dump
+    - { role: mysql-data-dump, when: set-up-seed == "yes" }
   tags:
     - shr-client-facilities
-  when: set-up-seed == "yes"

@@ -19,6 +19,8 @@
     - mysql-data-dump
   tags:
     - shr-client-locations
+  when: set-up-seed == "yes"
+
 
 - hosts: bahmni
   sudo: True
@@ -32,6 +34,7 @@
     - mysql-data-dump
   tags:
     - shr-client-providers
+  when: set-up-seed == "yes"
 
 - hosts: bahmni
   sudo: True
@@ -45,3 +48,4 @@
     - mysql-data-dump
   tags:
     - shr-client-facilities
+  when: set-up-seed == "yes"

@@ -1,2 +1,2 @@
 [bahmni]
-192.168.33.18 ansible_ssh_user=bahmni deployment_environment=dev rest_uri_prefix=https://192.168.33.18/openmrs/ facility_id=facility_one
+192.168.33.18 ansible_ssh_user=bahmni deployment_environment=dev rest_uri_prefix=https://192.168.33.18/openmrs/ facility_id=facility_one set_up_seed=no

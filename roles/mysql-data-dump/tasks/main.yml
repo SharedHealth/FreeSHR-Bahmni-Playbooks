@@ -9,7 +9,7 @@
     - "{{ data_source_dir }}/{{ data_file }}"
 
 - name: Install Data
-  shell: "mysql -u root -ppassword  {{ shr_client_database }} < {{ data_destination_dir }}/{{ data_file }}"
+  shell: "mysql -u root -ppassword  -h localhost {{ shr_client_database }} < {{ data_destination_dir }}/{{ data_file }}"
 
 - name: Delete Scripts
   shell: "rm -rf {{ data_destination_dir }}"

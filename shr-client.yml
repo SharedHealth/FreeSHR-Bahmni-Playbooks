@@ -6,6 +6,8 @@
     bahmni_user: bahmni
   roles:
     - shr-client
+  tags:
+    - shr-client-deploy
 
 - hosts: bahmni
   sudo: True

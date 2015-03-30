@@ -8,6 +8,15 @@
   with_fileglob:
     - "{{ data_source_dir }}/{{ data_file }}"
 
+- name: Allow dir access to mysql user
+  file:
+    path={{ data_destination_dir }}
+    owner=mysql
+    group=mysql
+    follow=yes
+    recurse=yes
+    state=directory
+
 - name: Install Data
   shell: "mysql -u root -ppassword  -h localhost {{ shr_client_database }} < {{ data_destination_dir }}/{{ data_file }}"
 

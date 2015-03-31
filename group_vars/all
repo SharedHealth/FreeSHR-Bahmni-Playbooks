@@ -1,5 +1,5 @@
 shr_client_seed_data_source_dir: /var/go/seed-data/shr-client
 shr_client_seed_data_destination_dir: /home/{{ bahmni_user }}/seed-data
-shr_client_locations_seed_data_file: locations.cql
-shr_client_providers_seed_data_file: providers.cql
-shr_client_facilities_seed_data_file: facilities.cql
+shr_client_locations_seed_data_file: locations.sql
+shr_client_providers_seed_data_file: providers.sql
+shr_client_facilities_seed_data_file: facilities.sql

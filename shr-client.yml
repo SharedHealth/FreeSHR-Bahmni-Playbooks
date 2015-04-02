@@ -9,7 +9,7 @@
   tags:
     - shr-client-deploy
 
-- hosts: bahmni
+- hosts: bahmni1
   sudo: True
   vars:
     bahmni_user: bahmni
@@ -22,7 +22,7 @@
   tags:
     - shr-client-locations
 
-- hosts: bahmni
+- hosts: bahmni1
   sudo: True
   vars:
     bahmni_user: bahmni
@@ -35,7 +35,7 @@
   tags:
     - shr-client-providers
 
-- hosts: bahmni
+- hosts: bahmni1
   sudo: True
   vars:
     bahmni_user: bahmni

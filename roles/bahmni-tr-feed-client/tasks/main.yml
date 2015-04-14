@@ -1,0 +1,21 @@
+---
+
+- name: Copy terminologies feed client omod
+  copy: 
+    src='{{omod}}' 
+    dest=/home/{{bahmni_user}}/.OpenMRS/modules 
+    mode=755
+    owner={{ bahmni_user }}
+    group={{ bahmni_user }}
+
+- name: Copy terminology registry properties
+  template:
+    src=tr_atomfeed_properties.j2 
+    dest=/home/{{ bahmni_user }}/.OpenMRS/tr_atomfeed_properties.properties
+    mode=644
+    owner={{ bahmni_user }}
+    group={{ bahmni_user }}
+
+
+- name: Restart tomcat
+  service: name=tomcat state=restarted

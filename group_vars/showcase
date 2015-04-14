@@ -1,0 +1,19 @@
+mci_reference_url: http://172.18.46.53:8081
+mci_patient_context: /api/v1/patients
+
+shr_version: 
+shr_reference_url: http://172.18.46.54:8081
+shr_catchment_path_pattern: /catchments/%s/encounters
+shr_patient_enc_path_pattern: /patients/%s/encounters
+
+tr_reference_url: http://172.18.46.53:9080
+tr_concept_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/concept/recent"
+tr_reference_term_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/conceptreferenceterm/recent"
+tr_medication_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/medication/recent"
+tr_valueset_url_pathInfo: openmrs/ws/rest/v1/tr/vs
+tr_feed_maxFailedEvents: 10000
+tr_feed_connectionTimeoutInMilliseconds: 10000
+tr_feed_replyTimeoutInMilliseconds: 20000
+
+idp_reference_url: http://hrmtest.dghs.gov.bd/api/1.0/sso
+idp_signin_path: signin

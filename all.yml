@@ -1,0 +1,15 @@
+- name: "deploy FreeSHR client"
+  hosts: bahmni
+  sudo: yes
+  roles:
+    - bahmni-shr-client
+  tags:
+    - shr-client-deploy
+
+- name: "deploy TR Feed client"
+  hosts: bahmni
+  sudo: yes
+  roles:
+    - bahmni-tr-feed-client
+  tags:
+    - tr-feed-client

@@ -1,12 +1,12 @@
-mci_reference_url: http://172.18.46.53:8081
+mci_reference_url: http://mcistg.twhosted.com
 mci_patient_context: /api/v1/patients
 
 shr_version: 
-shr_reference_url: http://172.18.46.54:8081
+shr_reference_url: http://shrstg.twhosted.com
 shr_catchment_path_pattern: /catchments/%s/encounters
 shr_patient_enc_path_pattern: /patients/%s/encounters
 
-tr_reference_url: http://172.18.46.53:9080
+tr_reference_url: http://trstg.twhosted.com
 tr_concept_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/concept/recent"
 tr_reference_term_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/conceptreferenceterm/recent"
 tr_medication_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/medication/recent"

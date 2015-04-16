@@ -1,7 +1,7 @@
 ---
 
 - name: Copy config
-  copy: src={{ item }} dest=/packages/build mode=0777
+  copy: src={{ item }} dest={{bahmni_packages_build_path}} mode=0777
   with_fileglob:
     - "{{ config_file }}"
 
@@ -12,16 +12,10 @@
 
 - name: Deploy bdshr config
   shell:
-    ./bdshr_config_installer.sh
-    chdir={{bahmni_packages_build_path}}
+    ./scripts/run-puppet-module.sh implementation_config
+    chdir={{bahmni_packages_build_path}}/bahmni-environment
   environment:
     FACTER_deploy_bahmni_openerp: false
-    FACTER_deploy_bahmni_openelis: true
+    FACTER_deploy_bahmni_openelis: false
     FACTER_implementation_name: bdshr
     FACTER_bahmni_user_name: bahmni
-
-- name: Stop openerp service
-  service: name=openerp state=stopped
-
-- name: Restart tomcat
-  service: name=tomcat state=restarted

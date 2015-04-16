@@ -1,4 +1,0 @@
-- hosts: configuredhost
-  sudo: True
-  tasks:
-    - include: tasks/migrations.yml

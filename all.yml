@@ -57,4 +57,6 @@
   hosts: bahmni
   sudo: true
   roles:
-   - role: bahmni-deploy-config
+    - role: bahmni-deploy-config
+  tags:
+    - bahmni-deploy-config

@@ -1,5 +1,5 @@
 bahmni_user: bahmni
-bahmni_build_env_path: /packages/build/bahmni-environment
+bahmni_packages_build_path: /packages/build
 
 shr_client_seed_data_source_dir: /var/go/seed-data/shr-client
 shr_client_seed_data_destination_dir: /home/{{ bahmni_user }}/seed-data

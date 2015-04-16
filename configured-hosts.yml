@@ -1,5 +1,0 @@
----
-- hosts: configuredhost
-  sudo: True
-  roles:
-   - role: configured-host

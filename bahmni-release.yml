@@ -1,7 +1,0 @@
----
-# Set following var: release_version
-
-- hosts: ci
-  sudo: true
-  roles:
-   - role: bahmni-release

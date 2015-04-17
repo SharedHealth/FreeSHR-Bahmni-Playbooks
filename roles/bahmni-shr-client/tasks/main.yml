@@ -82,4 +82,4 @@
 
 - name: Restart tomcat
   service: name=tomcat state=restarted
-  when: is_host_active == true
+  when: is_host_active == "true"

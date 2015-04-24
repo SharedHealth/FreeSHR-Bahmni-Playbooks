@@ -15,7 +15,7 @@
     - tr-feed-client
 
 - name: "Setup address hierarchy data"
-  hosts: bahmni
+  hosts: bahmni-db
   sudo: yes
   vars:
     data_destination_dir: "{{ shr_client_seed_data_destination_dir }}"
@@ -28,7 +28,7 @@
     - shr-client-locations
 
 - name: "Setup providers data"
-  hosts: bahmni
+  hosts: bahmni-db
   sudo: yes
   vars:
     data_destination_dir: "{{ shr_client_seed_data_destination_dir }}"
@@ -41,7 +41,7 @@
     - shr-client-providers
 
 - name: "Setup facilities data"
-  hosts: bahmni
+  hosts: bahmni-db
   sudo: yes
   vars:
     data_destination_dir: "{{ shr_client_seed_data_destination_dir }}"

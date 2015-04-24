@@ -4,6 +4,10 @@
 172.18.46.169 ansible_ssh_user=bdshr is_host_active=true facility_code=10019842 facility_client_id=18548 facility_email=nehashrl@thoughtworks.com facility_password=thoughtworks facility_token=41eeda45e711cc6b3e660e4abb2cb863f93ae90815f0edf40a134dffedf6d885 facility_catchments=3026
 172.18.46.161 ansible_ssh_user=bdshr is_host_active=false facility_code=10019842 facility_client_id=18548 facility_email=nehashrl@thoughtworks.com facility_password=thoughtworks facility_token=41eeda45e711cc6b3e660e4abb2cb863f93ae90815f0edf40a134dffedf6d885 facility_catchments=3026
 
+[bahmni-db]
+172.18.46.163 ansible_ssh_user=bdshr is_host_active=true
+172.18.46.169 ansible_ssh_user=bdshr is_host_active=true
+
 [external-registries]
 trstg.twhosted.com host_ip_address=172.18.46.221
 shrstg.twhosted.com host_ip_address=172.18.46.221
@@ -12,3 +16,4 @@ mcistg.twhosted.com host_ip_address=172.18.46.221
 
 [stg:children]
 bahmni
+bahmni-db

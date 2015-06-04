@@ -1,5 +1,5 @@
 mci_reference_url: http://192.168.33.10:8081
-mci_patient_context: /api/v1/patients
+mci_patient_context: /api/default/patients
 
 shr_version: 
 shr_reference_url: http://192.168.33.29:8081

@@ -4,7 +4,14 @@
 [bahmni-db]
 192.168.33.18 ansible_ssh_user=vagrant is_host_active=true
 
+[bahmni-hospital]
+192.168.33.18 ansible_ssh_user=bdshr is_host_active=true
+
+[bahmni-chw]
+192.168.33.18 ansible_ssh_user=vagrant is_host_active=true
 
 [local:children]
 bahmni
 bahmni-db
+bahmni-hospital
+bahmni-chw

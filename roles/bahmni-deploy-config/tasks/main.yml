@@ -17,5 +17,5 @@
   environment:
     FACTER_deploy_bahmni_openerp: false
     FACTER_deploy_bahmni_openelis: false
-    FACTER_implementation_name: bdshr
+    FACTER_implementation_name: "{{ implementation_config_name }}"
     FACTER_bahmni_user_name: bahmni

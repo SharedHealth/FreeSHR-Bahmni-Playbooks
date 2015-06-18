@@ -13,7 +13,16 @@ trstg.twhosted.com host_ip_address=172.18.46.221
 shrstg.twhosted.com host_ip_address=172.18.46.221
 mcistg.twhosted.com host_ip_address=172.18.46.221
 
+[bahmni-hospital]
+172.18.46.163 ansible_ssh_user=bdshr is_host_active=true
+172.18.46.165 ansible_ssh_user=bdshr is_host_active=false
+172.18.46.169 ansible_ssh_user=bdshr is_host_active=true
+172.18.46.161 ansible_ssh_user=bdshr is_host_active=false
+
+[bahmni-chw]
 
 [stg:children]
 bahmni
 bahmni-db
+bahmni-hospital
+bahmni-chw

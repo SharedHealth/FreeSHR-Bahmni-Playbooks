@@ -7,6 +7,14 @@
 172.18.46.59 ansible_ssh_user=bdshr is_host_active=true
 172.18.46.60 ansible_ssh_user=bdshr is_host_active=true
 
+[bahmni-hospital]
+172.18.46.59 ansible_ssh_user=bdshr is_host_active=true
+172.18.46.60 ansible_ssh_user=bdshr is_host_active=true
+
+[bahmni-chw]
+
 [dev:children]
 bahmni
 bahmni-db
+bahmni-hospital
+bahmni-chw

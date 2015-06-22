@@ -67,21 +67,9 @@
     - shr-client-concept
 
 - name: "Setup bdshr hospital config"
-  hosts: bahmni-hospital
+  hosts: bahmni
   sudo: true
-  vars:
-    implementation_config_name: "bd-hospital"
   roles:
-    - { role: bahmni-deploy-config, when: is_host_active == "true" }
+    - { role: bahmni-deploy-config, when: is_host_active == "true"}
   tags:
-    - bahmni-deploy-hospital-config
-
-- name: "Setup bdshr chw config"
-  hosts: bahmni-chw
-  sudo: true
-  vars:
-    implementation_config_name: "bdshr"
-  roles:
-    - { role: bahmni-deploy-config, when: is_host_active == "true" }
-  tags:
-    - bahmni-deploy-chw-config
+    - bahmni-deploy-config

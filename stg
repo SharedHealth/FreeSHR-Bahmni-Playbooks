@@ -1,28 +1,32 @@
 [bahmni]
 172.18.46.163 ansible_ssh_user=bdshr is_host_active=true facility_code=10019850 facility_client_id=18589 facility_email=bahmni-chw@local.staging.com facility_password=thoughtworks facility_token=2bb0457cdd417473423246c9c09f000fc22cb562c1e3285b5f5d3356cb0a5fe2 facility_catchments=302607
+implementation_config_name=bd-hospital
 172.18.46.165 ansible_ssh_user=bdshr is_host_active=false facility_code=10019850 facility_client_id=18589 facility_email=bahmni-chw@local.staging.com facility_password=thoughtworks facility_token=2bb0457cdd417473423246c9c09f000fc22cb562c1e3285b5f5d3356cb0a5fe2 facility_catchments=302607
+implementation_config_name=bd-hospital
 172.18.46.169 ansible_ssh_user=bdshr is_host_active=true facility_code=10019842 facility_client_id=18596 facility_email=bahmni-chw2@local.staging.com facility_password=thoughtworks facility_token=2df03f1789216211acc2f2622be0aa56ec701b45a385f17292eb7e9a8e7fe68e facility_catchments=302607
+implementation_config_name=bd-hospital
 172.18.46.161 ansible_ssh_user=bdshr is_host_active=false facility_code=10019842 facility_client_id=18596 facility_email=bahmni-chw2@local.staging.com facility_password=thoughtworks facility_token=2df03f1789216211acc2f2622be0aa56ec701b45a385f17292eb7e9a8e7fe68e facility_catchments=302607
+implementation_config_name=bd-hospital
+172.18.46.158 ansible_ssh_user=bdshr is_host_active=true facility_code=10019842 facility_client_id=18596 facility_email=bahmni-chw2@local.staging.com facility_password=thoughtworks facility_token=2df03f1789216211acc2f2622be0aa56ec701b45a385f17292eb7e9a8e7fe68e facility_catchments=302607
+implementation_config_name=bdshr
+172.18.46.157 ansible_ssh_user=bdshr is_host_active=false facility_code=10019842 facility_client_id=18596 facility_email=bahmni-chw2@local.staging.com facility_password=thoughtworks facility_token=2df03f1789216211acc2f2622be0aa56ec701b45a385f17292eb7e9a8e7fe68e facility_catchments=302607
+implementation_config_name=bdshr
+172.18.46.156 ansible_ssh_user=bdshr is_host_active=true facility_code=10019842 facility_client_id=18596 facility_email=bahmni-chw2@local.staging.com facility_password=thoughtworks facility_token=2df03f1789216211acc2f2622be0aa56ec701b45a385f17292eb7e9a8e7fe68e facility_catchments=302607
+implementation_config_name=bd-hospital
+172.18.46.199 ansible_ssh_user=bdshr is_host_active=false facility_code=10019842 facility_client_id=18596 facility_email=bahmni-chw2@local.staging.com facility_password=thoughtworks facility_token=2df03f1789216211acc2f2622be0aa56ec701b45a385f17292eb7e9a8e7fe68e facility_catchments=302607
+implementation_config_name=bd-hospital
 
 [bahmni-db]
 172.18.46.163 ansible_ssh_user=bdshr is_host_active=true
 172.18.46.169 ansible_ssh_user=bdshr is_host_active=true
+172.18.46.158 ansible_ssh_user=bdshr is_host_active=true
+172.18.46.156 ansible_ssh_user=bdshr is_host_active=true
 
 [external-registries]
 trstg.twhosted.com host_ip_address=172.18.46.221
 shrstg.twhosted.com host_ip_address=172.18.46.221
 mcistg.twhosted.com host_ip_address=172.18.46.221
 
-[bahmni-hospital]
-172.18.46.163 ansible_ssh_user=bdshr is_host_active=true
-172.18.46.165 ansible_ssh_user=bdshr is_host_active=false
-172.18.46.169 ansible_ssh_user=bdshr is_host_active=true
-172.18.46.161 ansible_ssh_user=bdshr is_host_active=false
-
-[bahmni-chw]
-
 [stg:children]
 bahmni
 bahmni-db
-bahmni-hospital
-bahmni-chw

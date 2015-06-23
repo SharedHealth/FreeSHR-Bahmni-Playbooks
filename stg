@@ -3,10 +3,8 @@
 implementation_config_name=bd-hospital deploy-openelis=true
 172.18.46.169 ansible_ssh_user=bdshr is_host_active=true facility_code=10019842 facility_client_id=18596 facility_email=bahmni-chw2@local.staging.com facility_password=thoughtworks facility_token=2df03f1789216211acc2f2622be0aa56ec701b45a385f17292eb7e9a8e7fe68e facility_catchments=302607
 implementation_config_name=bd-hospital deploy-openelis=true
-172.18.46.158 ansible_ssh_user=bdshr is_host_active=true facility_code=10019842 facility_client_id=18596 facility_email=bahmni-chw2@local.staging.com facility_password=thoughtworks facility_token=2df03f1789216211acc2f2622be0aa56ec701b45a385f17292eb7e9a8e7fe68e facility_catchments=302607
-implementation_config_name=bdshr deploy-openelis=false
-172.18.46.157 ansible_ssh_user=bdshr is_host_active=false facility_code=10019842 facility_client_id=18596 facility_email=bahmni-chw2@local.staging.com facility_password=thoughtworks facility_token=2df03f1789216211acc2f2622be0aa56ec701b45a385f17292eb7e9a8e7fe68e facility_catchments=302607
-implementation_config_name=bdshr deploy-openelis=false
+172.18.46.158 ansible_ssh_user=bdshr is_host_active=true facility_code=10019842 facility_client_id=18596 facility_email=bahmni-chw2@local.staging.com facility_password=thoughtworks facility_token=2df03f1789216211acc2f2622be0aa56ec701b45a385f17292eb7e9a8e7fe68e facility_catchments=302607 implementation_config_name=bdshr deploy-openelis=false
+172.18.46.157 ansible_ssh_user=bdshr is_host_active=false facility_code=10019842 facility_client_id=18596 facility_email=bahmni-chw2@local.staging.com facility_password=thoughtworks facility_token=2df03f1789216211acc2f2622be0aa56ec701b45a385f17292eb7e9a8e7fe68e facility_catchments=302607 implementation_config_name=bdshr deploy-openelis=false
 
 [bahmni-db]
 172.18.46.163 ansible_ssh_user=bdshr is_host_active=true

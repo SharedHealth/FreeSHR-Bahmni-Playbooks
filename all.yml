@@ -62,7 +62,7 @@
     data_file: "{{ shr_client_concept_seed_data_file }}"
     shr_client_database: "openmrs"
   roles:
-    - { role: mysql-data-dump, when: is_host_active == "true" }
+    - { role: mysql-data-dump, when: is_host_active == "true" and implementation_config_name == implementation }
   tags:
     - shr-client-concept
 

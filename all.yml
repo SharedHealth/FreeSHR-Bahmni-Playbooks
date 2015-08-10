@@ -6,6 +6,14 @@
   tags:
     - shr-client-deploy
 
+- name: "deploy FreeSHR client individual"
+  hosts: bahmni
+  sudo: yes
+  roles:
+    - { role: bahmni-shr-client, when: box_name == box }
+  tags:
+    - shr-client-deploy-individual
+
 - name: "deploy TR Feed client"
   hosts: bahmni
   sudo: yes
@@ -13,6 +21,14 @@
     - bahmni-tr-feed-client
   tags:
     - tr-feed-client
+
+- name: "deploy TR Feed client individual"
+  hosts: bahmni
+  sudo: yes
+  roles:
+    - { role: bahmni-tr-feed-client, when box_name == box }
+  tags:
+    - tr-feed-client-individual
 
 - name: "Setup address hierarchy data"
   hosts: bahmni-db

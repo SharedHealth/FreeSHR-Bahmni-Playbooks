@@ -4,8 +4,8 @@
 
 
 [bahmni-db]
-172.18.46.59 ansible_ssh_user=bdshr is_host_active=true
-172.18.46.60 ansible_ssh_user=bdshr is_host_active=true
+172.18.46.59 ansible_ssh_user=bdshr is_host_active=true box_name=box1
+172.18.46.60 ansible_ssh_user=bdshr is_host_active=true box_name=box2
 
 [dev:children]
 bahmni

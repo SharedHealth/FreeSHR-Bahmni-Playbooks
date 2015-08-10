@@ -3,8 +3,8 @@
 172.18.46.57 ansible_ssh_user=bdshr is_host_active=true facility_code=10019842 facility_client_id=18548 facility_email=nehashrl@thoughtworks.com facility_password=thoughtworks facility_token=41eeda45e711cc6b3e660e4abb2cb863f93ae90815f0edf40a134dffedf6d885 facility_catchments=3026 implementation_config_name=bd-hospital deploy_openelis=true box_name=box2
 
 [bahmni-db]
-172.18.46.55 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bd-hospital
-172.18.46.57 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bd-hospital
+172.18.46.55 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bd-hospital box_name=box1
+172.18.46.57 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bd-hospital box_name=box2
 
 [qa:children]
 bahmni

@@ -1,5 +1,12 @@
 ---
 
-- name: Install Data
-  shell: "mysql -u root -ppassword  -h 127.0.0.1 {{ shr_client_database }} < {{ data_file }}"
+- name: Copy Scripts
+  copy: src='{{ item }}' dest={{ data_destination_dir }} mode=0644
+  with_fileglob:
+    - "{{ data_source }}"
 
+- name: Install Data
+  shell: "mysql -u root -ppassword  -h 127.0.0.1 {{ shr_client_database }} < {{ data_destination_dir }}/{{ sql_file }}"
+
+- name: Delete Scripts
+  shell: "rm -rf {{ data_destination_dir }}/{{ sql_file }}"

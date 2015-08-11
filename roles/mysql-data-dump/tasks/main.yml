@@ -1,7 +1,7 @@
 ---
 
 - name: Copy Scripts
-  copy: src='{{ item }}' dest={{ data_destination_dir }} mode=0644
+  copy: src='{{ item }}' dest={{ data_destination_dir }}/{{ sql_file }} mode=0644
   with_fileglob:
     - "{{ data_source }}"
 

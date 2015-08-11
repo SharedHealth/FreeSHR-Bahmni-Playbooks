@@ -73,7 +73,9 @@
   hosts: bahmni-db
   sudo: yes
   vars:
-    data_source: "{{ item }}"
+    data_source: "{{ data_file }}"
+    data_destination_dir: "{{ shr_client_seed_data_destination_dir }}"
+    sql_file: "openrms_concept_data.sql"
     shr_client_database: "openmrs"
   roles:
     - { role: mysql-data-dump, when: is_host_active == "true" and implementation_config_name == implementation and box_tag_name == box }

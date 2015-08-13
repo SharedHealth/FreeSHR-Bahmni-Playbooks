@@ -1,5 +1,8 @@
 ---
 
+- name: Create directory for Scripts
+  file: path={{ data_destination_dir }} state=directory
+
 - name: Copy Scripts
   copy: src='{{ item }}' dest={{ data_destination_dir }}/{{ sql_file }} mode=0644
   with_fileglob:

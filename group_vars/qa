@@ -19,3 +19,8 @@ tr_api_user_password: Admin123
 
 idp_reference_url: http://172.18.46.56:8080
 idp_signin_path: signin
+
+facility_registry_url: "{{idp_reference_url}}/api/1.0/facilities"
+location_registry_url: "{{idp_reference_url}}/api/1.0/locations"
+provider_registry_url: "{{idp_reference_url}}/api/1.0/providers"
+

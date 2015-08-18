@@ -17,3 +17,7 @@ tr_feed_replyTimeoutInMilliseconds: 20000
 
 idp_reference_url: http://localhost:8080
 idp_signin_path: signin
+
+facility_registry_url: "{{idp_reference_url}}/api/1.0/facilities"
+location_registry_url: "{{idp_reference_url}}/api/1.0/locations"
+provider_registry_url: "{{idp_reference_url}}/api/1.0/providers"

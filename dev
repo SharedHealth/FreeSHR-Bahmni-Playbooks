@@ -10,5 +10,3 @@
 [dev:children]
 bahmni
 bahmni-db
-bahmni-hospital
-bahmni-chw

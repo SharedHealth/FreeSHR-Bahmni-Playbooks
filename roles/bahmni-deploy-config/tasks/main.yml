@@ -1,13 +1,13 @@
 ---
 
 - name: Copy config
-  copy: src={{ item }} dest=/tmp mode=0777
+  copy: src={{ item }} dest=/tmp/installer.sh mode=0777
   with_fileglob:
     - "{{ config_file }}"
 
 - name: Deploy bdshr config
   shell:
-    /tmp/{{ config_file }}
+    /tmp/installer.sh
   environment:
     FACTER_deploy_bahmni_openerp: false
     FACTER_deploy_bahmni_openelis: "{{ deploy_openelis }}"

@@ -1,19 +1,13 @@
 ---
 
 - name: Copy config
-  copy: src={{ item }} dest={{bahmni_packages_build_path}} mode=0777
+  copy: src={{ item }} dest=/tmp mode=0777
   with_fileglob:
     - "{{ config_file }}"
 
-- name: No tty
-  lineinfile: backup=yes state=present dest=/etc/sudoers
-              regexp='^Defaults    requiretty'
-              line='#Defaults    requiretty'
-
 - name: Deploy bdshr config
   shell:
-    ./scripts/run-puppet-module.sh implementation_config
-    chdir={{bahmni_packages_build_path}}/bahmni-environment
+    /tmp/{{ config_file }}
   environment:
     FACTER_deploy_bahmni_openerp: false
     FACTER_deploy_bahmni_openelis: "{{ deploy_openelis }}"

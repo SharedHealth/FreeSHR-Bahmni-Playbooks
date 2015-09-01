@@ -1,7 +1,7 @@
 ---
 
 - name: Copy config
-  copy: src={{ item }} dest=/tmp/installer.sh mode=0777
+  copy: src='{{ item }}' dest=/tmp/installer.sh mode=0777
   with_fileglob:
     - "{{ config_file }}"
 

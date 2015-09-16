@@ -2,7 +2,7 @@ mci_reference_url: http://172.18.46.56:8081
 mci_patient_context: /api/default/patients
 
 shr_version: 
-shr_reference_url: http://172.18.46.57:8081
+shr_reference_url: http://172.18.46.57:8083
 shr_catchment_path_pattern: /catchments/%s/encounters
 shr_patient_enc_path_pattern: /patients/%s/encounters
 

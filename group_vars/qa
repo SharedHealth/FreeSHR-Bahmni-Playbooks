@@ -17,7 +17,7 @@ tr_feed_replyTimeoutInMilliseconds: 20000
 tr_api_user_name: admin
 tr_api_user_password: Admin123
 
-idp_reference_url: http://172.18.46.56:8080
+idp_reference_url: http://172.18.46.55:8084
 idp_signin_path: signin
 
 facility_registry_url: http://hrmtest.dghs.gov.bd/api/1.0/facilities

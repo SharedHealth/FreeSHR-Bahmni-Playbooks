@@ -14,6 +14,9 @@ tr_valueset_url_pathInfo: openmrs/ws/rest/v1/tr/vs
 tr_feed_maxFailedEvents: 10000
 tr_feed_connectionTimeoutInMilliseconds: 10000
 tr_feed_replyTimeoutInMilliseconds: 20000
+tr_api_user_name: trapiuser
+tr_api_user_password: Trapiuser123
+
 
 idp_reference_url: http://localhost:8080
 idp_signin_path: signin

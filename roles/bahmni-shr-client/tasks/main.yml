@@ -1,4 +1,8 @@
 ---
+- name: Delete shr client omod
+  shell: rm -f /home/{{ bahmni_user }}/.OpenMRS/modules/shrclient-*.omod
+  sudo: yes
+
 - name: Copy shr client omod
   copy: 
     src='{{ omod }}' 

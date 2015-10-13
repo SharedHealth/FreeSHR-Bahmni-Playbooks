@@ -26,7 +26,7 @@
   hosts: bahmni
   sudo: yes
   roles:
-    - { role: bahmni-tr-feed-client, when box_tag_name == box_tag }
+    - { role: bahmni-tr-feed-client, when: box_tag_name == box_tag }
   tags:
     - tr-feed-client-individual
 

@@ -86,6 +86,6 @@
   hosts: bahmni
   sudo: true
   roles:
-    - { role: bahmni-deploy-config, when: is_host_active == "true" and implementation_config_name == implementation }
+    - { role: bahmni-deploy-config, when: implementation_config_name == implementation }
   tags:
     - bahmni-deploy-config

@@ -11,7 +11,7 @@ tr_concept_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/concept/recent"
 tr_reference_term_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/conceptreferenceterm/recent"
 tr_medication_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/medication/recent"
 tr_valueset_url_pathInfo: openmrs/ws/rest/v1/tr/vs
-tr_feed_maxFailedEvents: 10000
+tr_feed_maxFailedEvents: 100
 tr_feed_connectionTimeoutInMilliseconds: 10000
 tr_feed_replyTimeoutInMilliseconds: 20000
 tr_api_user_name: trapiuser

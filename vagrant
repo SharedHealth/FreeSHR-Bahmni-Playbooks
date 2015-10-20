@@ -1,2 +1,0 @@
-[bahmni]
-localhost ansible_ssh_user=vagrant deployment_environment=dev rest_uri_prefix=https://localhost/openmrs/ facility_id=facility_one deploy_openelis=true implementation_config_name=bd-hospital

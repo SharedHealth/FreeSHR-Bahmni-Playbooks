@@ -51,14 +51,6 @@
     owner={{ bahmni_user }}
     group={{ bahmni_user }}
 
-- name: Copy terminology registry properties
-  template:
-    src=tr_atomfeed_properties.j2 
-    dest=/home/{{ bahmni_user }}/.OpenMRS/tr_atomfeed_properties.properties
-    mode=644
-    owner={{ bahmni_user }}
-    group={{ bahmni_user }}
-
 - name: Copy identity-server properties
   template:
     src=idp.j2 

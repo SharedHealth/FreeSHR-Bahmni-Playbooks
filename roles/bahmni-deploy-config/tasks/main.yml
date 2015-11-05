@@ -9,7 +9,7 @@
   shell:
     /tmp/installer.sh
   environment:
-    FACTER_deploy_bahmni_openerp: false
+    FACTER_deploy_bahmni_openerp: "{{ deploy_openerp }}"
     FACTER_deploy_bahmni_openelis: "{{ deploy_openelis }}"
     FACTER_implementation_name: "{{ implementation_config_name }}"
     FACTER_bahmni_user_name: bahmni

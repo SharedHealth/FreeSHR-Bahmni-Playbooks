@@ -1,0 +1,65 @@
+---
+- name: Copy mci properties
+  template:
+    src=mci.j2 
+    dest=/home/{{ bahmni_user }}/.OpenMRS/mci.properties
+    mode=644
+    owner={{ bahmni_user }}
+    group={{ bahmni_user }}
+
+- name: Copy shr properties
+  template:
+    src=shr.j2 
+    dest=/home/{{ bahmni_user }}/.OpenMRS/shr.properties
+    mode=644
+    owner={{ bahmni_user }}
+    group={{ bahmni_user }}
+
+- name: Copy facility registry properties
+  template:
+    src=fr.j2 
+    dest=/home/{{ bahmni_user }}/.OpenMRS/fr.properties
+    mode=644
+    owner={{ bahmni_user }}
+    group={{ bahmni_user }}
+
+- name: Copy location registry properties
+  template:
+    src=lr.j2 
+    dest=/home/{{ bahmni_user }}/.OpenMRS/lr.properties
+    mode=644
+    owner={{ bahmni_user }}
+    group={{ bahmni_user }}
+
+- name: Copy provider registry properties
+  template:
+    src=pr.j2 
+    dest=/home/{{ bahmni_user }}/.OpenMRS/pr.properties
+    mode=644
+    owner={{ bahmni_user }}
+    group={{ bahmni_user }}
+
+- name: Copy identity-server properties
+  template:
+    src=idp.j2 
+    dest=/home/{{ bahmni_user }}/.OpenMRS/identity.properties
+    mode=644
+    owner={{ bahmni_user }}
+    group={{ bahmni_user }}
+
+- name: Copy facility instance properties
+  template:
+    src=facility_instance.j2 
+    dest=/home/{{ bahmni_user }}/.OpenMRS/facility_instance.properties
+    mode=644
+    owner={{ bahmni_user }}
+    group={{ bahmni_user }}
+
+- name: Copy terminology registry properties
+  template:
+    src=tr_atomfeed_properties.j2 
+    dest=/home/{{ bahmni_user }}/.OpenMRS/tr_atomfeed_properties.properties
+    mode=644
+    owner={{ bahmni_user }}
+    group={{ bahmni_user }}
+

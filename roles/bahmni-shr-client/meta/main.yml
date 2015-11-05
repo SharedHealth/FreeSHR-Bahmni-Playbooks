@@ -1,2 +1,2 @@
 dependencies:
-  - { role: bahmni-deploy-tr-properties}
+  - { role: bahmni-deploy-properties}

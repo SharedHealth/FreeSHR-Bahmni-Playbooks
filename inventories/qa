@@ -2,11 +2,13 @@
 172.18.46.149 ansible_ssh_user=bdshr is_host_active=true facility_code=10019841 facility_client_id=18549 facility_email=dmishra@thoughtworks.com facility_password=thoughtworks facility_token=1c2a599423203f639dcdd8574ac5391dd67d21316ea30ee364c8a8787fb79dd3 facility_catchments=303334 implementation_config_name=bd-uhc deploy_openelis=true deploy_openerp=true box_tag_name=box1
 172.18.46.57 ansible_ssh_user=bdshr is_host_active=true facility_code=10019842 facility_client_id=18548 facility_email=nehashrl@thoughtworks.com facility_password=thoughtworks facility_token=41eeda45e711cc6b3e660e4abb2cb863f93ae90815f0edf40a134dffedf6d885 facility_catchments=3026 implementation_config_name=bd-hospital deploy_openelis=true deploy_openerp=false box_tag_name=box2
 172.18.46.151 ansible_ssh_user=bdshr is_host_active=true facility_code=10019866 facility_client_id=18638 facility_email=chw@qa.thoughtworks.com facility_password=thoughtworks facility_token=c17fdf8d0605d524d0e064e358177574872be1f03940692531e811f830ada473 facility_catchments=3026186001 implementation_config_name=bdshr deploy_openelis=false deploy_openerp=false box_tag_name=box3
+172.18.46.182 ansible_ssh_user=bdshr is_host_active=true facility_code=10019871 facility_client_id=18647 facility_email=chwoffline@qa.thoughtworks.com facility_password=thoughtworks facility_token=7ee0a1d8c1b85f8851f75ab16dba994f51ecc7391b4071c1375028000edcc4d0 facility_catchments=3026186002 implementation_config_name=bdshr deploy_openelis=false deploy_openerp=false box_tag_name=box4
 
 [bahmni-db]
 172.18.46.149 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bd-uhc box_tag_name=box1
 172.18.46.57 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bd-uhc box_tag_name=box2
 172.18.46.151 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bdshr box_tag_name=box3
+172.18.46.182 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bdshr box_tag_name=box4
 
 [qa:children]
 bahmni

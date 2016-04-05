@@ -10,9 +10,9 @@
 172.18.46.158 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bdshr box_tag_name=box3
 
 [external-registries]
-trstg.twhosted.com host_ip_address=172.18.46.221
-shrstg.twhosted.com host_ip_address=172.18.46.221
-mcistg.twhosted.com host_ip_address=172.18.46.221
+tr-staging.twhosted.com host_ip_address=172.18.46.221
+shr-staging.twhosted.com host_ip_address=172.18.46.221
+mci-staging.twhosted.com host_ip_address=172.18.46.221
 
 [stg:children]
 bahmni

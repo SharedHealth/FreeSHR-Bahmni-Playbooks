@@ -1,14 +1,16 @@
-mci_reference_url: https://mci-staging.twhosted.com
+url_scheme: https
+mci_reference_url: "{{url_scheme}}://mci-staging.twhosted.com"
 mci_patient_context: /api/default/patients
 mci_max_failed_events: 100
 
 shr_version: 
-shr_reference_url: https://shr-staging.twhosted.com
+shr_reference_url: "{{url_scheme}}://shr-staging.twhosted.com"
 shr_catchment_path_pattern: /catchments/%s/encounters
 shr_patient_enc_path_pattern: /patients/%s/encounters
 shr_max_failed_events: 100
 
-tr_reference_url: https://tr-staging.twhosted.com
+url_scheme: https
+tr_reference_url: "{{url_scheme}}://tr-staging.twhosted.com"
 tr_concept_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/concept/recent"
 tr_reference_term_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/conceptreferenceterm/recent"
 tr_medication_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/medication/recent"

@@ -1,4 +1,4 @@
-172.18.46.59 ansible_ssh_user=bdshr is_host_active=true facility_code=10019842 facility_client_id=18548 facility_email=nehashrl@thoughtworks.com facility_password=thoughtworks facility_token=41eeda45e711cc6b3e660e4abb2cb863f93ae90815f0edf40a134dffedf6d885 facility_catchments=3026 box_tag_name=box1
+172.18.46.59 ansible_ssh_user=bdshr
 
 [bahmni-emr]
 172.18.46.59

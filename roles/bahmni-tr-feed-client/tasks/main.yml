@@ -1,12 +1,12 @@
 ---
 - name: Delete terminologies feed client omod omod
-  shell: rm -f /home/{{ bahmni_user }}/.OpenMRS/modules/openmrs-module-terminology_atomfeed_client-*.omod
+  shell: rm -f /opt/openmrs/modules/openmrs-module-terminology_atomfeed_client-*.omod
   sudo: yes
 
 - name: Copy terminologies feed client omod
   copy: 
     src='{{omod}}' 
-    dest=/home/{{bahmni_user}}/.OpenMRS/modules 
+    dest=/opt/openmrs/modules
     mode=755
     owner={{ bahmni_user }}
     group={{ bahmni_user }}

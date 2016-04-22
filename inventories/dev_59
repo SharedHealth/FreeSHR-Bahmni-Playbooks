@@ -1,5 +1,7 @@
 172.18.46.59 ansible_ssh_user=bdshr
 
+[nagios-server]
+
 [bahmni-emr]
 172.18.46.59
 

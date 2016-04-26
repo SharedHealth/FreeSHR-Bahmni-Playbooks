@@ -3,10 +3,10 @@
 [nagios-server]
 
 [bahmni-emr]
-172.18.46.59
+172.18.46.59 implementation_name=bd-uhc
 
 [bahmni-emr-db]
-172.18.46.59
+172.18.46.59 implementation_name=bd-uhc
 
 [bahmni-emr-db-slave]
 
@@ -17,10 +17,10 @@
 [bahmni-erp-db-slave]
 
 [bahmni-lab]
-172.18.46.59
+172.18.46.59 implementation_name=bd-uhc
 
 [bahmni-lab-db]
-172.18.46.59
+172.18.46.59 implementation_name=bd-uhc
 
 [bahmni-lab-db-slave]
 

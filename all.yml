@@ -30,6 +30,14 @@
   tags:
     - tr-feed-client-individual
 
+- name: "deploy TR and SHR client individual"
+  hosts: bahmni
+  sudo: yes
+  roles:
+    - { role: bahmni-deploy-omods, when: box_tag_name == box_tag }
+  tags:
+    - bahmni-omods-individual
+
 - name: "Setup address hierarchy data"
   hosts: bahmni-db
   sudo: yes

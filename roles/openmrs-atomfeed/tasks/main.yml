@@ -1,0 +1,16 @@
+---
+
+- name: Remove openmrs-atomfeed-2.5.1
+  file:
+    path=/opt/openmrs/modules/openmrs-atomfeed-2.5.1.omod
+    state=absent
+  ignore_errors: true
+
+- name: Download openmrs-atomfeed-2.5.2 to /opt/openmrs/modules
+  get_url:
+      url=https://oss.sonatype.org/service/local/repositories/releases/content/org/ict4h/openmrs/openmrs-atomfeed-omod/2.5.2/openmrs-atomfeed-omod-2.5.2.jar
+      force=yes
+      dest=/opt/openmrs/modules/openmrs-atomfeed-2.5.2.omod
+      mode=755
+      owner={{ bahmni_user }}
+      group={{ bahmni_user }}

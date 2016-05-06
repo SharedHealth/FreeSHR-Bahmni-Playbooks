@@ -97,3 +97,12 @@
     - { role: bahmni-deploy-config, when: implementation_config_name == implementation }
   tags:
     - bahmni-deploy-config
+
+- name: "Deploy openmrs-atomfeed-2.5.2"
+  hosts: bahmni
+  sudo: yes
+  roles:
+    - { role: openmrs-atomfeed, when: box_tag_name == box_tag }
+  tags:
+    - openmrs-atomfeed
+

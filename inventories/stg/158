@@ -1,7 +1,6 @@
 172.18.46.158 ansible_ssh_user=bdshr
 172.18.46.157 ansible_ssh_user=bdshr
 172.18.46.61 ansible_ssh_user=bdshr
-172.18.46.62 ansible_ssh_user=bdshr
 
 [nagios-server]
 
@@ -14,7 +13,6 @@
 172.18.46.61 implementation_name=bdshr
 
 [bahmni-emr-db-slave]
-172.18.46.62 implementation_name=bdshr
 
 [bahmni-erp]
 

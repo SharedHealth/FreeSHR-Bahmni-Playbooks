@@ -36,6 +36,8 @@
 
 [dcm4chee]
 
+[dcm4chee-db]
+
 [dcm4chee-db-slave]
 
 [bahmni-event-log-service]

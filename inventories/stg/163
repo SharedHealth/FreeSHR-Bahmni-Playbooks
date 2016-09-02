@@ -51,6 +51,8 @@
 
 [bahmni-event-log-service]
 
+[bahmni-offline]
+
 [local:children]
 bahmni-emr
 bahmni-emr-db

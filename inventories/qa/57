@@ -25,7 +25,7 @@
 [bahmni-lab-db-slave]
 
 [bahmni-reports]
-172.18.46.57 implementation_name=bd-uhc	
+172.18.46.57 implementation_name=bd-uhc
 
 [pacs-integration]
 
@@ -40,6 +40,8 @@
 [dcm4chee-db-slave]
 
 [bahmni-event-log-service]
+
+[bahmni-offline]
 
 [local:children]
 bahmni-emr

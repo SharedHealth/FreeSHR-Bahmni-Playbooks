@@ -44,6 +44,10 @@
 172.18.46.158 ansible_ssh_user=bdshr
 172.18.46.157 passive=yes ansible_ssh_user=bdshr
 
+[bahmni-offline]
+172.18.46.158
+172.18.46.157
+
 
 [local:children]
 nagios-server

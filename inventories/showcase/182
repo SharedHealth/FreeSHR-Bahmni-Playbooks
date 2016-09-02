@@ -39,6 +39,9 @@
 [bahmni-event-log-service]
 172.18.46.182 implementation_name=bdshr
 
+[bahmni-offline]
+172.18.46.182
+
 [local:children]
 bahmni-emr
 bahmni-emr-db

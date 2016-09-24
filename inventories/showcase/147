@@ -18,6 +18,8 @@
 
 [bahmni-erp-db-slave]
 
+[bahmni-offline]
+
 [bahmni-lab]
 172.18.46.147 implementation_name=bd-uhc
 

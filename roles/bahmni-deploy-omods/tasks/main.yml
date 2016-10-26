@@ -1,16 +1,14 @@
 ---
 - name: Delete shr client omod
   shell: rm -f /opt/openmrs/modules/shrclient-*.omod
-  sudo: yes
 
 - name: Delete terminologies feed client omod
   shell: rm -f /opt/openmrs/modules/openmrs-module-terminology_atomfeed_client-*.omod
-  sudo: yes
 
 - name: Copy terminologies feed client omod
   copy: 
     src='{{tr_omod}}' 
-    dest=/opt/openmrs/modules
+    dest=/opt/openmrs/modules/
     mode=755
     owner={{ bahmni_user }}
     group={{ bahmni_user }}

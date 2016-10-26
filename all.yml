@@ -1,6 +1,7 @@
 - name: "deploy FreeSHR client"
   hosts: bahmni
-  sudo: yes
+  become_user: root
+  become: yes
   roles:
     - bahmni-shr-client
   tags:
@@ -8,7 +9,8 @@
 
 - name: "deploy FreeSHR client individual"
   hosts: bahmni
-  sudo: yes
+  become_user: root
+  become: yes
   roles:
     - { role: bahmni-shr-client, when: box_tag_name == box_tag }
   tags:
@@ -16,7 +18,8 @@
 
 - name: "deploy TR Feed client"
   hosts: bahmni
-  sudo: yes
+  become_user: root
+  become: yes
   roles:
     - bahmni-tr-feed-client
   tags:
@@ -24,7 +27,8 @@
 
 - name: "deploy TR Feed client individual"
   hosts: bahmni
-  sudo: yes
+  become_user: root
+  become: yes
   roles:
     - { role: bahmni-tr-feed-client, when: box_tag_name == box_tag }
   tags:
@@ -32,68 +36,9 @@
 
 - name: "deploy TR and SHR client individual"
   hosts: bahmni
-  sudo: yes
+  become_user: root
+  become: yes
   roles:
     - { role: bahmni-deploy-omods, when: box_tag_name == box_tag }
   tags:
     - bahmni-omods-individual
-
-- name: "Setup address hierarchy data"
-  hosts: bahmni-db
-  sudo: yes
-  vars:
-    data_source: "{{ data_file }}"
-    data_destination_dir: "{{ shr_client_seed_data_destination_dir }}"
-    sql_file: "locations.sql"
-    shr_client_database: "openmrs"
-  roles:
-    - { role: mysql-data-dump, when: is_host_active == "true" and box_tag_name == box_tag }
-  tags:
-    - shr-client-locations
-
-- name: "Setup providers data"
-  hosts: bahmni-db
-  sudo: yes
-  vars:
-    data_source: "{{ data_file }}"
-    data_destination_dir: "{{ shr_client_seed_data_destination_dir }}"
-    sql_file: "providers.sql"
-    shr_client_database: "openmrs"
-  roles:
-    - { role: mysql-data-dump, when: is_host_active == "true" and box_tag_name == box_tag }
-  tags:
-    - shr-client-providers
-
-- name: "Setup facilities data"
-  hosts: bahmni-db
-  sudo: yes
-  vars:
-    data_source: "{{ data_file }}"
-    data_destination_dir: "{{ shr_client_seed_data_destination_dir }}"
-    sql_file: "facilities.sql"
-    shr_client_database: "openmrs"
-  roles:
-    - { role: mysql-data-dump, when: is_host_active == "true" and box_tag_name == box_tag }
-  tags:
-    - shr-client-facilities
-
-- name: "Setup concept data"
-  hosts: bahmni-db
-  sudo: yes
-  vars:
-    data_source: "{{ data_file }}"
-    data_destination_dir: "{{ shr_client_seed_data_destination_dir }}"
-    sql_file: "openrms_concept_data.sql"
-    shr_client_database: "openmrs"
-  roles:
-    - { role: mysql-data-dump, when: is_host_active == "true" and implementation_config_name == implementation and box_tag_name == box }
-  tags:
-    - shr-client-concept
-
-- name: "Setup bdshr config"
-  hosts: bahmni
-  sudo: true
-  roles:
-    - { role: bahmni-deploy-config, when: implementation_config_name == implementation }
-  tags:
-    - bahmni-deploy-config

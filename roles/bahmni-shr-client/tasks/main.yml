@@ -1,7 +1,6 @@
 ---
 - name: Delete shr client omod
   shell: rm -f /opt/openmrs/modules/shrclient-*.omod
-  sudo: yes
 
 - name: Copy shr client omod
   copy: 

@@ -1,8 +1,7 @@
 ---
 - name: Delete terminologies feed client omod omod
   shell: rm -f /opt/openmrs/modules/openmrs-module-terminology_atomfeed_client-*.omod
-  sudo: yes
-
+  
 - name: Copy terminologies feed client omod
   copy: 
     src='{{omod}}' 

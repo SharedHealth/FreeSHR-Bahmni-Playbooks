@@ -1,1 +1,1 @@
-omod: /tmp/shrclient-2.0-SNAPSHOT.omod
+omod: /tmp/shrclient-{{ release_version }}-SNAPSHOT.omod

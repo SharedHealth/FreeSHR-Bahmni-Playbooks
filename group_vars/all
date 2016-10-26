@@ -3,3 +3,4 @@ bahmni_packages_build_path: /packages/build
 shr_client_seed_data_destination_dir: /home/{{ bahmni_user }}/seed-data
 tr_api_user_name: trapiuser
 tr_api_user_password: Trapiuser123
+release_version: 2.5

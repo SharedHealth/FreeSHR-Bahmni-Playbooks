@@ -1,2 +1,2 @@
-shr_omod: /tmp/shrclient-2.0-SNAPSHOT.omod
-tr_omod: /tmp/shrclient-2.0-SNAPSHOT.omod
+shr_omod: /tmp/shrclient-{{ release_version }}-SNAPSHOT.omod
+tr_omod: /tmp/openmrs-module-terminology_atomfeed_client-{{ release_version }}-SNAPSHOT.omod

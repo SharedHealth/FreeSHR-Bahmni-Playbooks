@@ -1,14 +1,14 @@
-mci_reference_url: http://172.18.46.199:8081
+mci_reference_url: http://mci-dev.twhosted.com
 mci_patient_context: /api/default/patients
 mci_max_failed_events: 100
 
 shr_version: 
-shr_reference_url: http://172.18.46.156:8081
+shr_reference_url: http://shr-dev.twhosted.com
 shr_catchment_path_pattern: /catchments/%s/encounters
 shr_patient_enc_path_pattern: /patients/%s/encounters
 shr_max_failed_events: 100
 
-tr_reference_url: http://172.18.46.199:9080
+tr_reference_url: http://tr-dev.twhosted.com
 tr_concept_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/concept/recent"
 tr_reference_term_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/conceptreferenceterm/recent"
 tr_medication_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/medication/recent"
@@ -19,7 +19,7 @@ tr_feed_replyTimeoutInMilliseconds: 20000
 tr_api_user_name: trapiuser
 tr_api_user_password: Trapiuser123
 
-idp_reference_url: http://172.18.46.60:8084
+idp_reference_url: http://172.21.2.184:8084
 idp_signin_path: signin
 
 facility_registry_url: "{{idp_reference_url}}/api/1.0/facilities"

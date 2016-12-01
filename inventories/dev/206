@@ -19,7 +19,7 @@
 [bahmni-offline]
 
 [bahmni-lab]
-172.18.46.59 implementation_name=bd-uhc
+172.21.2.206 implementation_name=bd-uhc
 
 [bahmni-lab-db]
 172.21.2.206 implementation_name=bd-uhc

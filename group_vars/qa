@@ -22,7 +22,6 @@ tr_api_user_password: Trapiuser123
 idp_reference_url: http://172.18.46.55:8084
 idp_signin_path: signin
 
-facility_registry_url: http://172.18.46.55:8084/api/1.0/facilities
-location_registry_url: http://172.18.46.55:8084/api/1.0/locations
-provider_registry_url: http://172.18.46.55:8084/api/1.0/providers
-
+facility_registry_url: http://hrmtest.dghs.gov.bd/api/1.0/facilities
+location_registry_url: http://hrmtest.dghs.gov.bd/api/1.0/locations
+provider_registry_url: http://hrmtest.dghs.gov.bd/api/1.0/providers

@@ -1,4 +1,4 @@
 timezone: Asia/Kolkata
-bahmni_support_group: bdshr
-bahmni_support_user: bdshr
+bahmni_support_group: hie
+bahmni_support_user: hie
 postgres_repo_rpm_name: pgdg-centos92-9.2-7.noarch.rpm

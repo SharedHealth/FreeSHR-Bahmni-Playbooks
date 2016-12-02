@@ -1,9 +1,0 @@
-[bahmni]
-192.168.33.18 ansible_ssh_user=vagrant is_host_active=true facility_code=10019841 facility_client_id=18549 facility_email=dmishra@thoughtworks.com facility_password=thoughtworks facility_token=1c2a599423203f639dcdd8574ac5391dd67d21316ea30ee364c8a8787fb79dd3 facility_catchments=302607 implementation_config_name=bd-hospital ansible_ssh_pass=vagrant box_tag_name=box1 deploy_openelis=true deploy_openerp=false
-
-[bahmni-db]
-192.168.33.18 ansible_ssh_user=vagrant is_host_active=true implementation_config_name=bd-hospital box_tag_name=box1
-
-[local:children]
-bahmni
-bahmni-db

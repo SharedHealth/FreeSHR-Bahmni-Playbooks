@@ -9,6 +9,7 @@
 172.18.46.57 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bd-uhc box_tag_name=box2
 172.18.46.151 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bdshr box_tag_name=box3
 
+[external-registries]
 
 [qa:children]
 bahmni

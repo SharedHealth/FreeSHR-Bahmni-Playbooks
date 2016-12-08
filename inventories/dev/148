@@ -42,6 +42,8 @@
 
 [bahmni-event-log-service]
 
+[bahmni-reports-db]
+
 [local:children]
 bahmni-emr
 bahmni-emr-db
@@ -58,3 +60,4 @@ pacs-integration-db
 pacs-integration-db-slave
 dcm4chee
 bahmni-event-log-service
+bahmni-reports-db

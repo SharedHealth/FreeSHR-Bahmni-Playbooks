@@ -29,7 +29,10 @@
 [bahmni-lab-db-slave]
 
 [bahmni-reports]
-172.18.46.149 implementation_name=bd-uhc	
+172.18.46.149 implementation_name=bd-uhc
+
+[bahmni-reports-db]
+172.18.46.149 implementation_name=bd-uhc
 
 [pacs-integration]
 
@@ -56,6 +59,7 @@ bahmni-erp
 bahmni-erp-db
 bahmni-erp-db-slave
 bahmni-reports
+bahmni-reports-db
 pacs-integration
 pacs-integration-db
 pacs-integration-db-slave

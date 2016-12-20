@@ -1,14 +1,14 @@
-mci_reference_url: http://172.18.46.56:8081
+mci_reference_url: http://mci-qa.twhosted.com
 mci_patient_context: /api/default/patients
 mci_max_failed_events: 100
 
 shr_version: 
-shr_reference_url: http://172.18.46.57:8083
+shr_reference_url: http://shr-qa.twhosted.com
 shr_catchment_path_pattern: /catchments/%s/encounters
 shr_patient_enc_path_pattern: /patients/%s/encounters
 shr_max_failed_events: 100
 
-tr_reference_url: http://172.18.46.56:9080
+tr_reference_url: http://tr-qa.twhosted.com
 tr_concept_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/concept/recent"
 tr_reference_term_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/conceptreferenceterm/recent"
 tr_medication_feed_url: "{{tr_reference_url}}/openmrs/ws/atomfeed/medication/recent"

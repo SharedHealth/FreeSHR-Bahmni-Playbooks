@@ -23,6 +23,10 @@
 [bahmni-lab-db-slave]
 
 [bahmni-reports]
+172.18.46.151 implementation_name=bdshr
+
+[bahmni-reports-db]
+172.18.46.151 implementation_name=bdshr
 
 [bahmni-reports-db]
 

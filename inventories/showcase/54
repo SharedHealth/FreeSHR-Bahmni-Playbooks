@@ -31,6 +31,9 @@
 [bahmni-reports]
 172.18.46.54 implementation_name=bd-uhc	
 
+[bahmni-reports-db]
+172.18.46.54 implementation_name=bd-uhc
+
 [pacs-integration]
 
 [pacs-integration-db]

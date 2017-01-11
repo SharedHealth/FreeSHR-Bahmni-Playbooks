@@ -17,6 +17,7 @@
 [bahmni-erp-db-slave]
 
 [bahmni-offline]
+172.18.46.200 implementation_name=bdshr
 
 [bahmni-lab]
 
@@ -43,6 +44,7 @@
 [dcm4chee-db-slave]
 
 [bahmni-event-log-service]
+172.18.46.200 implementation_name=bdshr
 
 [local:children]
 bahmni-emr
@@ -55,6 +57,7 @@ bahmni-erp
 bahmni-erp-db
 bahmni-erp-db-slave
 bahmni-reports
+bahmni-reports-db
 pacs-integration
 pacs-integration-db
 pacs-integration-db-slave

@@ -1,6 +1,7 @@
 url_scheme: https
 mci_reference_url: "{{url_scheme}}://mci-staging.twhosted.com"
 mci_patient_context: /api/default/patients
+mci_catchment_pattern: /api/default/catchments/%s/patients
 mci_max_failed_events: 100
 
 shr_version: 

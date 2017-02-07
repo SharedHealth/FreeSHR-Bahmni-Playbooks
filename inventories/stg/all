@@ -1,5 +1,5 @@
 [bahmni]
-172.18.46.163 ansible_ssh_user=bdshr is_host_active=true facility_code=10000137 facility_client_id=18655 facility_email=gazipur.localstaging@thoughtworks.com facility_password=thoughtworks facility_token=9524520845dbee4681238dc3c1df495b809a4a35790bfd5394d730015937ebfd facility_catchments=3033 implementation_config_name=bd-uhc deploy_openelis=true deploy_openerp=true box_tag_name=box1
+172.18.46.60 ansible_ssh_user=bdshr is_host_active=true facility_code=10000137 facility_client_id=18655 facility_email=gazipur.localstaging@thoughtworks.com facility_password=thoughtworks facility_token=9524520845dbee4681238dc3c1df495b809a4a35790bfd5394d730015937ebfd facility_catchments=3033 implementation_config_name=bd-uhc deploy_openelis=true deploy_openerp=true box_tag_name=box1
 172.18.46.63 ansible_ssh_user=bdshr is_host_active=false facility_code=10000137 facility_client_id=18655 facility_email=gazipur.localstaging@thoughtworks.com facility_password=thoughtworks facility_token=9524520845dbee4681238dc3c1df495b809a4a35790bfd5394d730015937ebfd facility_catchments=3033 implementation_config_name=bd-uhc deploy_openelis=true deploy_openerp=true box_tag_name=box1
 172.18.46.169 ansible_ssh_user=bdshr is_host_active=true facility_code=10000144 facility_client_id=18656 facility_email=kaliganj.localstaging@thoughtworks.com facility_password=thoughtworks facility_token=fa092b3c0335d5b5a4e4733eab8e5f0e975c991d9747beca6982c389a78dbe42 facility_catchments=303334 implementation_config_name=bd-uhc deploy_openelis=true deploy_openerp=true box_tag_name=box2
 172.18.46.64 ansible_ssh_user=bdshr is_host_active=false facility_code=10000144 facility_client_id=18656 facility_email=kaliganj.localstaging@thoughtworks.com facility_password=thoughtworks facility_token=fa092b3c0335d5b5a4e4733eab8e5f0e975c991d9747beca6982c389a78dbe42 facility_catchments=303334 implementation_config_name=bd-uhc deploy_openelis=true deploy_openerp=true box_tag_name=box2
@@ -8,7 +8,7 @@
 
 
 [bahmni-db]
-172.18.46.163 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bd-hospital box_tag_name=box1
+172.18.46.60 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bd-uhc box_tag_name=box1
 172.18.46.169 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bd-uhc box_tag_name=box2
 172.18.46.61 ansible_ssh_user=bdshr is_host_active=true implementation_config_name=bdshr box_tag_name=box3
 172.18.46.62 ansible_ssh_user=bdshr is_host_active=false implementation_config_name=bdshr box_tag_name=box3

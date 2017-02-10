@@ -5,7 +5,6 @@
 
 [nagios-server]
 
-
 [bahmni-emr]
 172.18.46.158 implementation_name=bdshr
 172.18.46.157 passive=yes implementation_name=bdshr
@@ -33,7 +32,12 @@
 172.18.46.157 passive=yes ansible_ssh_user=bdshr
 
 [bahmni-reports-db]
+172.18.46.61 implementation_name=bdshr
+
+[bahmni-reports-db-slave]
 172.18.46.62 implementation_name=bdshr
+
+[atomfeed-console]
 
 [pacs-integration]
 
@@ -51,6 +55,7 @@
 172.18.46.158 ansible_ssh_user=bdshr
 172.18.46.157 passive=yes ansible_ssh_user=bdshr
 
+[bahmni-offline]
 
 [local:children]
 nagios-server
@@ -64,9 +69,14 @@ bahmni-erp
 bahmni-erp-db
 bahmni-erp-db-slave
 bahmni-reports
+bahmni-reports-db
+bahmni-reports-db-slave
 pacs-integration
 pacs-integration-db
 pacs-integration-db-slave
 dcm4chee
+dcm4chee-db
 dcm4chee-db-slave
 bahmni-event-log-service
+bahmni-offline
+atomfeed-console

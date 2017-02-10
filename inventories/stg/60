@@ -37,6 +37,9 @@
 172.18.46.60 implementation_name=bd-uhc
 172.18.46.63 passive=yes implementation_name=bd-uhc
 
+[bahmni-reports-db]
+172.18.46.63 implementation_name=bd-uhc
+
 [pacs-integration]
 
 [pacs-integration-db]

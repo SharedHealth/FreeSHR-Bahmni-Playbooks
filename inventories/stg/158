@@ -28,8 +28,8 @@
 [bahmni-lab-db-slave]
 
 [bahmni-reports]
-172.18.46.158 ansible_ssh_user=bdshr
-172.18.46.157 passive=yes ansible_ssh_user=bdshr
+172.18.46.158 implementation_name=bdshr
+172.18.46.157 passive=yes implementation_name=bdshr
 
 [bahmni-reports-db]
 172.18.46.61 implementation_name=bdshr
@@ -52,10 +52,11 @@
 [dcm4chee-db-slave]
 
 [bahmni-event-log-service]
-172.18.46.158 ansible_ssh_user=bdshr
-172.18.46.157 passive=yes ansible_ssh_user=bdshr
+172.18.46.158 implementation_name=bdshr
+172.18.46.157 passive=yes implementation_name=bdshr
 
 [bahmni-offline]
+172.18.46.158 implementation_name=bdshr
 
 [local:children]
 nagios-server

@@ -40,6 +40,10 @@
 [bahmni-reports-db]
 172.18.46.63 implementation_name=bd-uhc
 
+[bahmni-reports-db-slave]
+
+[atomfeed-console]
+
 [pacs-integration]
 
 [pacs-integration-db]
@@ -54,7 +58,10 @@
 
 [bahmni-event-log-service]
 
+[bahmni-offline]
+
 [local:children]
+nagios-server
 bahmni-emr
 bahmni-emr-db
 bahmni-emr-db-slave
@@ -65,8 +72,14 @@ bahmni-erp
 bahmni-erp-db
 bahmni-erp-db-slave
 bahmni-reports
+bahmni-reports-db
+bahmni-reports-db-slave
 pacs-integration
 pacs-integration-db
 pacs-integration-db-slave
 dcm4chee
+dcm4chee-db
+dcm4chee-db-slave
 bahmni-event-log-service
+bahmni-offline
+atomfeed-console

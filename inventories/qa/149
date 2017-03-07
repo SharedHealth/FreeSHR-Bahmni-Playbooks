@@ -1,32 +1,38 @@
-172.21.3.140 ansible_ssh_user=hie
+172.18.46.149 ansible_ssh_user=bdshr
 
 [nagios-server]
 
 [bahmni-emr]
-172.21.3.140 implementation_name=bdshr
+172.18.46.149 implementation_name=bd-uhc
 
 [bahmni-emr-db]
-172.21.3.140 implementation_name=bdshr
+172.18.46.149 implementation_name=bd-uhc
 
 [bahmni-emr-db-slave]
 
 [bahmni-erp]
+172.18.46.149 implementation_name=bd-uhc
 
 [bahmni-erp-db]
+172.18.46.149 implementation_name=bd-uhc
 
 [bahmni-erp-db-slave]
 
+[bahmni-offline]
+
 [bahmni-lab]
+172.18.46.149 implementation_name=bd-uhc
 
 [bahmni-lab-db]
+172.18.46.149 implementation_name=bd-uhc
 
 [bahmni-lab-db-slave]
 
 [bahmni-reports]
-172.21.3.140 implementation_name=bdshr
+172.18.46.149 implementation_name=bd-uhc
 
 [bahmni-reports-db]
-172.21.3.140 implementation_name=bdshr
+172.18.46.149 implementation_name=bd-uhc
 
 [pacs-integration]
 
@@ -40,11 +46,7 @@
 
 [dcm4chee-db-slave]
 
-[bahmni-offline]
-172.21.3.140
-
 [bahmni-event-log-service]
-172.21.3.140 implementation_name=bdshr
 
 [local:children]
 bahmni-emr

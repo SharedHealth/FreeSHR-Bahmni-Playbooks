@@ -5,8 +5,8 @@ mci_max_failed_events: 100
 
 shr_version: 
 shr_reference_url: http://shr-qa.twhosted.com
-shr_catchment_path_pattern: /catchments/%s/encounters
-shr_patient_enc_path_pattern: /patients/%s/encounters
+shr_catchment_path_pattern: /v2/catchments/%s/encounters
+shr_patient_enc_path_pattern: /v2/patients/%s/encounters
 shr_max_failed_events: 100
 
 tr_reference_url: http://tr-qa.twhosted.com

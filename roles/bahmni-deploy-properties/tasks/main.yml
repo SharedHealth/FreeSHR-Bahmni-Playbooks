@@ -63,6 +63,14 @@
     owner={{ bahmni_user }}
     group={{ bahmni_user }}
 
+- name: Copy fhir mapping  properties
+  template:
+    src=fhir_mapping_properties.j2
+    dest={{openmrs_properties_location}}/fhir_mapping.properties
+    mode=644
+    owner={{ bahmni_user }}
+    group={{ bahmni_user }}
+
 - name: "create hosts entries"
   lineinfile: 
     dest=/etc/hosts

@@ -1,41 +1,38 @@
-172.18.46.158 ansible_ssh_user=bdshr
-172.18.46.157 ansible_ssh_user=bdshr
-172.18.46.61 ansible_ssh_user=bdshr
-172.18.46.62 ansible_ssh_user=bdshr
+172.21.5.161 ansible_ssh_user=bdshr
 
 [nagios-server]
 
 [bahmni-emr]
-172.18.46.158 implementation_name=bdshr
-172.18.46.157 passive=yes implementation_name=bdshr
+172.21.5.161 implementation_name=bd-uhc
 
 [bahmni-emr-db]
-172.18.46.61 implementation_name=bdshr
+172.21.5.161 implementation_name=bd-uhc
 
 [bahmni-emr-db-slave]
-172.18.46.62 implementation_name=bdshr
 
 [bahmni-erp]
+172.21.5.161 implementation_name=bd-uhc
 
 [bahmni-erp-db]
+172.21.5.161 implementation_name=bd-uhc
 
 [bahmni-erp-db-slave]
 
 [bahmni-lab]
+172.21.5.161 implementation_name=bd-uhc
 
 [bahmni-lab-db]
+172.21.5.161 implementation_name=bd-uhc
 
 [bahmni-lab-db-slave]
 
 [bahmni-reports]
-172.18.46.158 implementation_name=bdshr
-172.18.46.157 passive=yes implementation_name=bdshr
+172.21.5.161 implementation_name=bd-uhc
 
 [bahmni-reports-db]
-172.18.46.61 implementation_name=bdshr
+172.21.5.161 implementation_name=bd-uhc
 
 [bahmni-reports-db-slave]
-172.18.46.62 implementation_name=bdshr
 
 [atomfeed-console]
 
@@ -52,11 +49,8 @@
 [dcm4chee-db-slave]
 
 [bahmni-event-log-service]
-172.18.46.158 implementation_name=bdshr
-172.18.46.157 passive=yes implementation_name=bdshr
 
 [bahmni-offline]
-172.18.46.158 implementation_name=bdshr
 
 [local:children]
 nagios-server

@@ -8,9 +8,9 @@
 172.21.2.206 ansible_ssh_user=hie is_host_active=true box_tag_name=box2
 
 [external-registries]
-tr-dev.twhosted.com host_ip_address=172.21.2.88
-shr-dev.twhosted.com host_ip_address=172.21.2.88
-mci-dev.twhosted.com host_ip_address=172.21.2.88
+tr-dev.twhosted.com host_ip_address=172.21.2.213
+shr-dev.twhosted.com host_ip_address=172.21.2.213
+mci-dev.twhosted.com host_ip_address=172.21.2.213
 
 [dev:children]
 bahmni

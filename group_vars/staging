@@ -28,3 +28,6 @@ idp_signin_path: signin
 facility_registry_url: http://hrmtest.dghs.gov.bd/api/1.0/facilities
 location_registry_url: http://hrmtest.dghs.gov.bd/api/1.0/locations
 provider_registry_url: http://hrmtest.dghs.gov.bd/api/1.0/providers
+
+mrs_encounter_type_to_fhir_encounter_type_map: {"FIELD":"FLD", "Consultation":"OPD"}
+fhir_encounter_type_to_mrs_encounter_type_map: {"FLD":"FIELD"}

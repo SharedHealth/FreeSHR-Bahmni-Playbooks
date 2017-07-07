@@ -1,4 +1,4 @@
-172.21.5.230 ansible_ssh_user=bdshr
+172.21.5.230 ansible_ssh_user=hie
 
 [nagios-server]
 

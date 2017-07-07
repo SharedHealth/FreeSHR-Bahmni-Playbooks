@@ -16,6 +16,6 @@ tr-staging.twhosted.com host_ip_address=172.21.5.85
 shr-staging.twhosted.com host_ip_address=172.21.5.85
 mci-staging.twhosted.com host_ip_address=172.21.5.85
 
-[stg:children]
+[staging:children]
 bahmni
 bahmni-db
